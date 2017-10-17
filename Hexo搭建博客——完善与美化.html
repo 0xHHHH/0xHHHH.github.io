@@ -393,7 +393,7 @@
       
 
       
-        <p>&emsp;&emsp;完成<a href="http://lyhub.xyz/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html" target="_blank" rel="external">上一篇文章</a>的各个步骤操作之后我们已经有了一个基本的博客雏形，那么接下让我们一起来看看如何完善及美化这个雏形，从而得到一个成型的博客。</p>
+        <p>&emsp;&emsp;完成<a href="http://lyhub.xyz/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2.html">上一篇文章</a>的各个步骤操作之后我们已经有了一个基本的博客雏形，那么接下让我们一起来看看如何完善及美化这个雏形，从而得到一个成型的博客。</p>
 <h3 id="站点完善"><a href="#站点完善" class="headerlink" title="站点完善"></a>站点完善</h3><p>&emsp;&emsp;一般博客都会有 <strong>归档、分类、标签、搜索</strong> 这几个标配的功能，而且主题配置文件一般都有预设且默认开启这几个菜单项<em>（看一下你现在的博客是不是有这几个菜单项，若没有则打开主题配置文件将对应菜单项前面的#号去掉，搜索这个菜单项先不用管它）</em>。不过看一下你的博客的这几个选项，都没有正确的跳转。所以接下来我们来完善这一部分的内容。<br><a id="more"></a></p>
 <h4 id="添加「归档」页面"><a href="#添加「归档」页面" class="headerlink" title="添加「归档」页面"></a>添加「归档」页面</h4><p>归档页面已经默认为我们设置好了，所以这个不用管它。</p>
 <h4 id="添加「标签」页面"><a href="#添加「标签」页面" class="headerlink" title="添加「标签」页面"></a>添加「标签」页面</h4><p>&emsp;&emsp;新建「标签」页面，并在菜单中显示「标签」链接。「标签」页面将展示站点的所有标签，若你的所有文章都未包含标签，此页面将是空的。 底下代码是一篇包含标签的文章的例子：</p>
@@ -506,7 +506,7 @@
 <hr>
 <p><strong><em>提醒</em></strong>：<em>在更新博客内容时，最好先在本地调试完毕后（hexo server），再推送到github上。</em></p>
 <hr>
-<p>&emsp;&emsp;至此，我们的博客算是真正意义上的成型了。如果说你比较熟悉前端的知识，那你可以进一步折腾博客的布局、配色、UI图标等等，深度定制个人专属博客。或者你想为博客新添加页面，菜单项的，网上也有很多教程可以看。在下面的参考链接中有很多有趣的东西给我们的博客增色，大家可以去瞧瞧。<br>&emsp;&emsp;我们的教程也参不多可以结束了，不过由于篇幅的原因，另外几个关于站点的完善我放在另一篇文章里，<a href="http://lyhub.xyz/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E7%BB%93%E6%9D%9F%E7%AF%87.html" target="_blank" rel="external">Hexo搭建博客——结束篇</a>，有兴趣的同学可以继续折腾折腾。</p>
+<p>&emsp;&emsp;至此，我们的博客算是真正意义上的成型了。如果说你比较熟悉前端的知识，那你可以进一步折腾博客的布局、配色、UI图标等等，深度定制个人专属博客。或者你想为博客新添加页面，菜单项的，网上也有很多教程可以看。在下面的参考链接中有很多有趣的东西给我们的博客增色，大家可以去瞧瞧。<br>&emsp;&emsp;我们的教程也参不多可以结束了，不过由于篇幅的原因，另外几个关于站点的完善我放在另一篇文章里，<a href="http://lyhub.xyz/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E7%BB%93%E6%9D%9F%E7%AF%87.html">Hexo搭建博客——结束篇</a>，有兴趣的同学可以继续折腾折腾。</p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a><br><a href="http://www.jianshu.com/p/4fbc57269f1b" target="_blank" rel="external">http://www.jianshu.com/p/4fbc57269f1b</a><br><a href="http://www.jianshu.com/p/f054333ac9e6" target="_blank" rel="external">http://www.jianshu.com/p/f054333ac9e6</a></p>
 
       
@@ -655,6 +655,11 @@ var jiathis_config={
           
 
   
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
 
 
 
@@ -706,7 +711,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -717,7 +722,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -728,7 +733,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -931,6 +936,14 @@ var jiathis_config={
 
 
 
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146328"></script>
+      <!-- UY END -->
+    
   
 
 

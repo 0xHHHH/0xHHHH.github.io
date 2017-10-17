@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,博客," />
+  <meta name="keywords" content="Python,编码," />
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;作为本教程的结束篇，我也废话不多说，直接上折腾过程。  为站点添加腾讯公益404页面&amp;emsp;&amp;emsp;我们知道当访问网站中不存在的内容都会跳转到404页面，Hexo也提供了该功能。&amp;emsp;&amp;emsp;方法：在主题文件下的source文件夹创建404.html页面，html代码：">
-<meta name="keywords" content="Hexo,博客">
+<meta name="description" content="&amp;emsp;&amp;emsp;Python 2 的编码问题一直是许多pythoner诟病的问题，给人以剪不断理还乱的感觉。本篇将介绍python2.x对字符编码是如何处理的，以及编程中遇到的一些编码问题，并给出解决方案。&amp;emsp;&amp;emsp;（本文存在一些博主个人见解的概念，非官方概念，请各位看官自行理解）。  &amp;emsp;&amp;emsp;python编程中会经常遇到操作系统编码、文件编码、控制台输入输出">
+<meta name="keywords" content="Python,编码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo搭建博客——结束篇">
-<meta property="og:url" content="http://lyhub.xyz/Hexo搭建博客——结束篇.html">
+<meta property="og:title" content="Python2编码解析">
+<meta property="og:url" content="http://lyhub.xyz/Python2编码解析.html">
 <meta property="og:site_name" content="LYHUB">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;作为本教程的结束篇，我也废话不多说，直接上折腾过程。  为站点添加腾讯公益404页面&amp;emsp;&amp;emsp;我们知道当访问网站中不存在的内容都会跳转到404页面，Hexo也提供了该功能。&amp;emsp;&amp;emsp;方法：在主题文件下的source文件夹创建404.html页面，html代码：">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;Python 2 的编码问题一直是许多pythoner诟病的问题，给人以剪不断理还乱的感觉。本篇将介绍python2.x对字符编码是如何处理的，以及编程中遇到的一些编码问题，并给出解决方案。&amp;emsp;&amp;emsp;（本文存在一些博主个人见解的概念，非官方概念，请各位看官自行理解）。  &amp;emsp;&amp;emsp;python编程中会经常遇到操作系统编码、文件编码、控制台输入输出">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-13T19:18:16.384Z">
+<meta property="og:updated_time" content="2017-10-17T13:22:22.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo搭建博客——结束篇">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;作为本教程的结束篇，我也废话不多说，直接上折腾过程。  为站点添加腾讯公益404页面&amp;emsp;&amp;emsp;我们知道当访问网站中不存在的内容都会跳转到404页面，Hexo也提供了该功能。&amp;emsp;&amp;emsp;方法：在主题文件下的source文件夹创建404.html页面，html代码：">
+<meta name="twitter:title" content="Python2编码解析">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;Python 2 的编码问题一直是许多pythoner诟病的问题，给人以剪不断理还乱的感觉。本篇将介绍python2.x对字符编码是如何处理的，以及编程中遇到的一些编码问题，并给出解决方案。&amp;emsp;&amp;emsp;（本文存在一些博主个人见解的概念，非官方概念，请各位看官自行理解）。  &amp;emsp;&amp;emsp;python编程中会经常遇到操作系统编码、文件编码、控制台输入输出">
 
 
 
@@ -137,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://lyhub.xyz/Hexo搭建博客——结束篇.html"/>
+  <link rel="canonical" href="http://lyhub.xyz/Python2编码解析.html"/>
 
 
 
 
 
-  <title>Hexo搭建博客——结束篇 | LYHUB</title>
+  <title>Python2编码解析 | LYHUB</title>
   
 
 
@@ -304,7 +304,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://lyhub.xyz/Hexo搭建博客——结束篇.html">
+    <link itemprop="mainEntityOfPage" href="http://lyhub.xyz/Python2编码解析.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ly">
@@ -321,7 +321,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo搭建博客——结束篇</h1>
+          <h1 class="post-title" itemprop="name headline">Python2编码解析</h1>
         
 
         <div class="post-meta">
@@ -333,8 +333,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-16T13:00:16+08:00">
-                2017-05-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-02T21:05:20+08:00">
+                2017-06-02
               </time>
             
 
@@ -356,8 +356,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -393,30 +393,131 @@
       
 
       
-        <p>&emsp;&emsp;作为本教程的结束篇，我也废话不多说，直接上折腾过程。</p>
+        <p>&emsp;&emsp;Python 2 的编码问题一直是许多pythoner诟病的问题，给人以剪不断理还乱的感觉。本篇将介绍python2.x对字符编码是如何处理的，以及编程中遇到的一些编码问题，并给出解决方案。<br>&emsp;&emsp;<em>（本文存在一些博主个人见解的概念，非官方概念，请各位看官自行理解）。</em></p>
 <hr>
-<h4 id="为站点添加腾讯公益404页面"><a href="#为站点添加腾讯公益404页面" class="headerlink" title="为站点添加腾讯公益404页面"></a>为站点添加腾讯公益404页面</h4><p>&emsp;&emsp;我们知道当访问网站中不存在的内容都会跳转到404页面，Hexo也提供了该功能。<br>&emsp;&emsp;<strong>方法</strong>：在主题文件下的source文件夹创建404.html页面，html代码：<br><a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML&gt;</div><div class="line">&lt;html&gt;</div><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8;&quot;/&gt;</div><div class="line">  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;</div><div class="line">  &lt;meta name=&quot;robots&quot; content=&quot;all&quot; /&gt;</div><div class="line">  &lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot;/&gt;</div><div class="line">  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://qzone.qq.com/gy/404/style/404style.css&quot;&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">  &lt;script type=&quot;text/plain&quot; src=&quot;http://www.qq.com/404/search_children.js&quot;</div><div class="line">          charset=&quot;utf-8&quot; homePageUrl=&quot;/&quot;</div><div class="line">          homePageName=&quot;回到我的主页&quot;&gt;</div><div class="line">  &lt;/script&gt;</div><div class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/data.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line">  &lt;script src=&quot;https://qzone.qq.com/gy/404/page.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;python编程中会经常遇到操作系统编码、文件编码、控制台输入输出编码、网页编码、源代码编码、python编码，本文将会逐一介绍。首先我们来看看一些常见的编码情况：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">print sys.getdefaultencoding()    #系统默认编码</div><div class="line">print sys.getfilesystemencoding() #文件系统编码</div><div class="line">print locale.getdefaultlocale()   #系统当前编码</div><div class="line">print sys.stdin.encoding          #终端输入编码</div><div class="line">print sys.stdout.encoding         #终端输出编码</div></pre></td></tr></table></figure></p>
+<p>将以上这段代码在windows与linux系统下分别运行，查看输出结果。</p>
+<p>windows终端结果:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ascii</div><div class="line">mbcs</div><div class="line">(&apos;zh_CN&apos;, &apos;cp936&apos;)</div><div class="line">cp936</div><div class="line">cp936</div></pre></td></tr></table></figure></p>
+<p>Linux终端结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ascii</div><div class="line">UTF-8</div><div class="line">(&apos;zh_CN&apos;, &apos;UTF-8&apos;)</div><div class="line">UTF-8</div><div class="line">UTF-8</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;为什么会出现编码问题呢，很明显代码中出现编码不匹配的情况。如果你是纯英文编程，也不用处理到中文字符的，我想你大概也不会碰到编码的问题。但是在大天朝，怎么可能不涉及到中文呢。。。</p>
+<p>最常遇到的错误就是：<br><code>UnicodeDecodeError: &#39;ascii&#39; codec can&#39;t decode byte 0xe4 in position x: ordinal not in range(xxx)</code><br><code>UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position x-x: ordinal not in range(xxx)</code></p>
+<hr>
+<p>首先来讲一下大家都知道的 <code># -*- coding:utf-8 -*-</code><br>&emsp;&emsp;python 2 对于源代码的读取采用的是ASCII编码，所以你的源代码中有中文，在文件开头没写<code># -*- coding:utf-8 -*-</code> ，那么你的文件运行就会报错：<br><code>SyntaxError: Non-ASCII character xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></p>
+<p><code># -*- coding:utf-8 -*-</code> 的作用就是告诉python读取源代码用UTF-8编码，而非ASCII编码。</p>
 <blockquote>
-<p><strong>注意</strong>：在本地模式下调试不了该页面，要推送上GitHub才能看到该页面。<br>如果说你推送上GitHub后还是调试不到该页面，其中一个原因可能是：没有绑定域名。没有绑定域名的话是无法创建404 页面，只会跳转到github默认404 page，绑定域名的话可使用腾讯公益404页面。还有一个注意的点是：<code>http://github.io</code>全部都是https，而js里面的链接有的是http，谷歌浏览器可能会拦截这个跳转，这个大家也要注意一下</p>
+<p><strong>注意</strong>：<code># -*- coding:utf-8 -*-</code>的作用仅仅是作用于源码读取而已。</p>
 </blockquote>
-<h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h4><p>&emsp;&emsp;博客已经搭建好，能通过github的域名访问，但总归还是用自己的域名比较舒服。因此我们需要设置将自己的域名绑定到github这个博客项目上。<br>&emsp;&emsp;去域名提供商那里注册个域名。至于去那个域名提供商博主就不推荐了，大家自个网上看。</p>
+<p>所以你的源码中带有中文，请在开头加上<code># -*- coding:utf-8 -*-</code>。</p>
+<p>接下来我们来看看<code>sys.getdefaultencoding() #系统默认编码</code>。<br>&emsp;&emsp;在了解<code>sys.getdefaultencoding() #系统默认编码</code>之前，我们非常有必要了解在Python 2 中字符串是如何被处理的。</p>
+<p>Python 2 中字符串分两类 <code>str</code> 和 <code>Unicode</code>。</p>
+<p><code>str</code>：字符串前面 <strong>没有</strong> 加<code>u</code>的都是<code>str</code>类型，<code>str</code>有什么特点呢，如下：</p>
 <ul>
-<li>在域名提供商那设置：<ul>
-<li>添加2条A记录：<br><code>@—&gt;192.30.252.154</code><br><code>@—&gt;192.30.252.153</code></li>
-<li>添加一条CNAME记录：<br><code>CNAME—&gt;XXXX.github.io</code></li>
+<li>若没有对<code>str</code>执行额外的encode或decode，那么python解释器不会对它进行额外的编码解码处理。<br>&emsp;&emsp;比如该字符串是写在源码中，那么它的编码就是Python读取源码时用的编码。比如一个中文字符串<code>s = &#39;中文&#39;</code>，文件开头有<code># -*- coding:utf-8 -*-</code>，那么该中文字符串就是UTF-8编码。如果直接将该字符串写到文件中，其编码还是UTF-8编码，因为该过程没有对其进行任何encode或decode。<br>&emsp;&emsp;又如该字符串是从文件中读取的，比如在Windows中读取一个带有中文的文件，那么读取到的字符串一般就是GBK编码。若没有对它进行encode或decode操作，你可以直接将它输出而不会出现乱码。</li>
 </ul>
-</li>
-<li>博客添加CNAME文件<br>配置完域名解析后，进入博客目录，在source目录下新建CNAME文件（没有后缀名），写入域名，如：lyhub.xyz</li>
-<li>运行：<code>hexo g</code></li>
-<li>运行：<code>hexo d</code></li>
+<p>所以对于<code>str</code>类型，不对它执行额外的encode或decode操作，Python会一直保持它原始的编码。</p>
+<p><code>Unicode</code>：字符串前面 <strong>有</strong> 加<code>u</code>的都是<code>Unicode</code>类型。<br>&emsp;&emsp;脱开Python来说，Unicode是一个能包含全世界所有字符符号的字符集，它既是一个字符集，也是一种编码方式。<br>&emsp;&emsp;在Python 2 中，Unicode是一个字符集，但“不作为一种输出编码方式”。</p>
+<p>如何理解“不作为一种输出编码方式”。<br>&emsp;&emsp;我们处理字符串，最终都是要输出出来，包括显示，存储到文件等等。Python 2 对于<code>Unicode</code>类型，如果要将其输出，必须以某种编码encode再输出。这其中包括显示的跟隐式的。<br>&emsp;&emsp;比如说在Windows的控制台下输出<code>s = u&#39;中国&#39;</code>。我们知道Windows下cmd的默认编码是GBK，如果你在cmd的下执行脚本<code>print s</code>，则报错<br><code>UnicodeEncodeError: &#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in range(128)</code><br>因为Python 2 中Unicode不作为输出编码方式，当你<code>print</code>时，Python隐式地对<code>s</code>执行encode操作，而encode成哪一种编码呢，那就是<code>sys.getdefaultencoding()    #系统默认编码</code>这个系统默认编码了。Python 2 的默认系统编码是ASCII，而字符串中有中文，ASCII无法对中文编码，因此报错。</p>
+<p>如何解决：</p>
+<ul>
+<li>在进行<code>print</code>时显示地进行<code>encode</code>，如：<code>print s.encode(&#39;GBK&#39;)</code>。</li>
+<li>或者修改系统默认编码：</li>
 </ul>
-<p>&emsp;&emsp;这个有些情况下需要等待时间才会生效，所以如果访问自个域名不成功的话不用急，多等一下也许就能上了。</p>
-<h4 id="SEO优化"><a href="#SEO优化" class="headerlink" title="SEO优化"></a>SEO优化</h4><p>&emsp;&emsp;seo优化对于网站是否能被搜索引擎快速收录有很大帮助，因此适当做一些seo还是有必要的，可参考：<a href="http://www.arao.me/2015/hexo-next-theme-optimize-seo/" target="_blank" rel="external">http://www.arao.me/2015/hexo-next-theme-optimize-seo/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;gbk&apos;)</div><div class="line"># Linux下为utf-8</div></pre></td></tr></table></figure>
+<p>总结下<code>str</code>和<code>Unicode</code>：<br>&emsp;&emsp;Python中的<code>Unicode</code>我们可以把它理解为是一种底层处理编码，它是连接其他编码的桥梁，因为它能囊括全世界所有字符符号。比如你想把一个GBK编码的字符串转换成UTF-8编码，你可以先将其<code>decode</code>成<code>Unicode</code>，再从<code>Unicode</code>去<code>encode</code>成UTF-8，反之亦然。而<code>str</code>是一种除了Unicode编码之外的字符串类型，它所带的编码是可以用于输出操作，你可以对它进行<code>decode</code>操作成<code>Unicode</code>，也可以直接对它<code>encode</code>操作，python会隐式地在<code>encode</code>之前用系统编码对其进行<code>decode</code>成<code>Unicode</code>。</p>
+<p>所以<code>sys.getdefaultencoding() #系统默认编码</code>的作用就是，当Python处理<code>Unicode</code>字符串的输出时，若发现没有显示地编码<code>encode</code>操作，则对该字符串以系统默认编码执行<code>encode</code>后输出。</p>
+<blockquote>
+<p><strong>提示</strong>：<br><code>decode</code>的作用是将其他编码的字符串转换成unicode编码，如<code>str1.decode(&#39;gb2312&#39;)</code>，表示将gb2312编码的字符串str1转换成unicode编码。<br><code>encode</code>的作用是将unicode编码转换成其他编码的字符串，如<code>str2.encode(&#39;gb2312&#39;)</code>，表示将unicode编码的字符串str2转换成gb2312编码。</p>
+</blockquote>
 <hr>
-<p>&emsp;&emsp;到这我们的 <strong>Hexo搭建博客</strong> 教程就告一段落了，以上也是博主搭建本博客的记录，在此分享给大家，希望能够帮助到各位看官。</p>
+<p>讲了这么多，我们来实际操作看看吧。以下操作均在Windows下进行。</p>
+<p>新建一个<code>test.txt</code>，在里面输入中文，比如：编码测试，直接保存退出。<br>运行以下脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f = open(&apos;test.txt&apos;)</div><div class="line">s = f.read()</div><div class="line">print s</div><div class="line">print type(s)</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">编码测试</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<p>可以看到，这个过程没有涉及任何编码解码操作，正常输出TXT里的内容。这是因为读进来的文件内容是GBK编码，cmd也是GBK编码，因此能够正常显示。</p>
+<p>打开<code>test.txt</code>文件，将其另存为以UTF-8编码的形式。</p>
+<blockquote>
+<p><strong>注意</strong>：不要用记事本转成UTF-8，用notepad打开并在编码那里转成以UTF-8无BOM编码。记事本转成UTF-8带BOM会出错。这是UTF-8中带不带BOM的问题，这里先不说。</p>
+</blockquote>
+<p>再次运行上面的脚本<br>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">锘跨紪鐮佹祴璇?</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<p>可以看到，<code>编码测试</code>变成<code>锘跨紪鐮佹祴璇?</code>。这是因为读进来的文件内容是UTF-8编码，与cmd的编码不一样，所以不能正常显示。</p>
+<p>如何解决：</p>
+<ul>
+<li>将读取进来的内容<code>decode</code>成<code>Unicode</code>再<code>encode</code>成GBK</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f = open(&apos;test.txt&apos;)</div><div class="line">s = f.read()</div><div class="line">print s.decode(&apos;utf-8&apos;).encode(&apos;GBK&apos;)</div><div class="line">print type(s)</div><div class="line">f.close()</div></pre></td></tr></table></figure>
+<p>运行，输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">编码测试</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<p>正常显示。</p>
 <hr>
-<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="external">https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/</a><br><a href="http://www.arao.me/2015/hexo-next-theme-optimize-seo/" target="_blank" rel="external">http://www.arao.me/2015/hexo-next-theme-optimize-seo/</a></p>
+<p>再看下面这个脚本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">a=u&quot;编码测试&quot;  #定义一个Unicode字符串</div><div class="line">print type(a)</div><div class="line">print a</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type &apos;unicode&apos;&gt;</div><div class="line">UnicodeEncodeError: &apos;ascii&apos; codec can&apos;t encode characters in position 0-3: ordinal not in range(128)</div></pre></td></tr></table></figure>
+<p><code>a</code>字符串是<code>Unicode</code>字符串，对它执行<code>print</code>输出时，Python隐式地对它执行<code>encode</code>操作，<code>encode</code>编码默认是ASCII编码，不能编码中文，因此出现以上的错误。</p>
+<p>如何解决：</p>
+<ul>
+<li>修改系统编码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;gbk&apos;)</div></pre></td></tr></table></figure>
+<p>在前面加上以上三条语句，将系统编码设置成gbk（Linux下设置成utf-8）<br>脚本如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;gbk&apos;)</div><div class="line"></div><div class="line">a=u&quot;编码测试&quot;  #定义一个变量，为Unicode编码</div><div class="line">print type(a)</div><div class="line">print a</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type &apos;unicode&apos;&gt;</div><div class="line">编码测试</div></pre></td></tr></table></figure>
+<ul>
+<li>另外一种方法就是进行显示编码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=u&quot;编码测试&quot;  #定义一个变量，为Unicode编码</div><div class="line">print type(a)</div><div class="line">print a.encode(&apos;gbk&apos;)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;type &apos;unicode&apos;&gt;</div><div class="line">编码测试</div></pre></td></tr></table></figure>
+<p>正常输出。</p>
+<hr>
+<p>再看非Unicode的情形：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">a=&quot;编码测试&quot;  #定义一个变量，默认为Str，utf-8编码</div><div class="line">print a</div><div class="line">print type(a)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">缂栫爜娴嬭瘯</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<p>因为<code># -*- coding:utf-8 -*-</code>，所以<code>a</code>以<code>utf-8</code>编码，直接输出到控制台，由于编码不匹配所以出现上面的内容。</p>
+<p>如何解决：</p>
+<ul>
+<li>显示地进行解码编码：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">a=&quot;编码测试&quot;  #定义一个变量，默认为Str，utf-8编码</div><div class="line">print a.decode(&apos;utf-8&apos;).encode(&apos;gbk&apos;)</div><div class="line">print type(a)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">编码测试</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>或者把系统编码设置成utf-8，那么可以直接对<code>a</code>进行encode操作</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line"></div><div class="line">a=&quot;编码测试&quot;  #定义一个变量，默认为Str，utf-8编码</div><div class="line">print a.encode(&apos;gbk&apos;) # 这个过程Python隐式地先执行decode(&apos;utf-8&apos;)操作</div><div class="line">print type(a)</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>提示</strong>：直接对<code>str</code>进行<code>encode</code>的话，Python会先对其进行隐式的<code>decode</code>操作，所用的编码是系统编码。</p>
+</blockquote>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">编码测试</div><div class="line">&lt;type &apos;str&apos;&gt;</div></pre></td></tr></table></figure>
+<hr>
+<p>&emsp;&emsp;所以对于Python 2 中的编码，我们只要抓住几个点就完全可以应对各种编码情况。</p>
+<ul>
+<li>弄清楚字符串从哪里来，编码是什么，经过什么处理，要输出到什么平台，文件，其编码要求是什么。</li>
+<li><code>Unicode</code>是Python 2 “底层”的编码，用于处理的编码，协助<code>str</code>进行编码转换。输出<code>Unicode</code>必须经过encode操作，可显示的，也可隐式的。隐式的话需要注意此时的系统编码。</li>
+<li><code>str</code>是Python 2 “上层”的编码，用于处理、<strong>输出</strong>的编码，通过<code>Unicode</code>的协助完成编码转换。</li>
+<li><code>str</code> decode成<code>Unicode</code></li>
+<li><code>Unicode</code> encode成<code>str</code></li>
+<li>注意Python 2 中 显示的 及 隐式的 decode、encode操作。</li>
+</ul>
+<p>最后</p>
+<p>python 2 编码建议：</p>
+<ul>
+<li>请尽量在Linux系统上编程，linux下较windows，编码问题良好很多。</li>
+<li>python代码内部请全部使用<code>unicode</code>编码，在获取外部内容时，先decode为<code>unicode</code>，向外输出时再encode为<code>Str</code></li>
+<li>在定义变量或者正则时，也定义<code>unicode</code>字符，如<code>a = u”中文”</code>；<code>res=r””+u”正则”</code>。</li>
+</ul>
+<hr>
+<ul>
+<li>以上若有错误之处还望各位看官指正，非常感谢。</li>
+</ul>
+<hr>
+<p>参考：<br><a href="https://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/" target="_blank" rel="external">https://thief.one/2017/02/16/%E8%A7%A3%E5%86%B3Python2-x%E7%BC%96%E7%A0%81%E4%B9%8B%E6%AE%87/</a></p>
 
       
     </div>
@@ -444,12 +545,12 @@
   <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
-  <p><span>本文标题:</span><a href="/Hexo搭建博客——结束篇.html">Hexo搭建博客——结束篇</a></p>
+  <p><span>本文标题:</span><a href="/Python2编码解析.html">Python2编码解析</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ly 的个人博客">ly</a></p>
-  <p><span>发布时间:</span>2017年05月16日 - 13:05</p>
-  <p><span>最后更新:</span>2017年10月14日 - 03:10</p>
-  <p><span>原始链接:</span><a href="/Hexo搭建博客——结束篇.html" title="Hexo搭建博客——结束篇">http://lyhub.xyz/Hexo搭建博客——结束篇.html</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/Hexo搭建博客——结束篇.html"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2017年06月02日 - 21:06</p>
+  <p><span>最后更新:</span>2017年10月17日 - 21:10</p>
+  <p><span>原始链接:</span><a href="/Python2编码解析.html" title="Python2编码解析">http://lyhub.xyz/Python2编码解析.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/Python2编码解析.html"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -481,9 +582,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
-            <a href="/tags/博客/" rel="tag"><i class="fa fa-tag"></i> 博客</a>
+            <a href="/tags/编码/" rel="tag"><i class="fa fa-tag"></i> 编码</a>
           
         </div>
       
@@ -496,8 +597,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Hexo搭建博客——完善与美化.html" rel="next" title="Hexo搭建博客——完善与美化">
-                <i class="fa fa-chevron-left"></i> Hexo搭建博客——完善与美化
+              <a href="/Hexo搭建博客——结束篇.html" rel="next" title="Hexo搭建博客——结束篇">
+                <i class="fa fa-chevron-left"></i> Hexo搭建博客——结束篇
               </a>
             
           </div>
@@ -506,8 +607,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Python2编码解析.html" rel="prev" title="Python2编码解析">
-                Python2编码解析 <i class="fa fa-chevron-right"></i>
+              <a href="/Python3编码小记.html" rel="prev" title="Python3编码小记">
+                Python3编码小记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -591,17 +692,8 @@ var jiathis_config={
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -682,22 +774,6 @@ var jiathis_config={
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#为站点添加腾讯公益404页面"><span class="nav-number">1.</span> <span class="nav-text">为站点添加腾讯公益404页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绑定域名"><span class="nav-number">2.</span> <span class="nav-text">绑定域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SEO优化"><span class="nav-number">3.</span> <span class="nav-text">SEO优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
