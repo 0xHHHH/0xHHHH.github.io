@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,正则表达式,字符串处理," />
 
 
 
@@ -96,16 +96,18 @@
 
 
 
-<meta name="description" content="LYHUB--ly的知识分享小站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LYHUB">
-<meta property="og:url" content="http://lyhub.xyz/archives/2017/05/index.html">
+<meta name="description" content="&amp;emsp;&amp;emsp;正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。它是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。因此它通常被用来检索、替换那些符合某个模式(规则)的文本。&amp;emsp;">
+<meta name="keywords" content="Python,正则表达式,字符串处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python正则表达式——re模块部分解析">
+<meta property="og:url" content="http://lyhub.xyz/Python正则表达式——re模块部分解析.html">
 <meta property="og:site_name" content="LYHUB">
-<meta property="og:description" content="LYHUB--ly的知识分享小站">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。它是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。因此它通常被用来检索、替换那些符合某个模式(规则)的文本。&amp;emsp;">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-20T09:52:43.154Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LYHUB">
-<meta name="twitter:description" content="LYHUB--ly的知识分享小站">
+<meta name="twitter:title" content="Python正则表达式——re模块部分解析">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。它是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。因此它通常被用来检索、替换那些符合某个模式(规则)的文本。&amp;emsp;">
 
 
 
@@ -135,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://lyhub.xyz/archives/2017/05/"/>
+  <link rel="canonical" href="http://lyhub.xyz/Python正则表达式——re模块部分解析.html"/>
 
 
 
 
 
-  <title>归档 | LYHUB</title>
+  <title>Python正则表达式——re模块部分解析 | LYHUB</title>
   
 
 
@@ -160,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,259 +290,300 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyhub.xyz/Python正则表达式——re模块部分解析.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ly">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tou.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYHUB">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Python正则表达式——re模块部分解析</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T17:35:53+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Python正则表达式——re模块部分解析.html" itemprop="url">
-              
-                <span itemprop="name">Python正则表达式——re模块部分解析</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-24T17:35:53+08:00"
-              content="2017-05-24" >
-          05-24
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Python正则表达式——书写正则表达式.html" itemprop="url">
-              
-                <span itemprop="name">Python正则表达式——书写正则表达式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-20T10:40:18+08:00"
-              content="2017-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客——结束篇.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客——结束篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-16T13:00:16+08:00"
-              content="2017-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>&emsp;&emsp;正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。它是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。因此它通常被用来检索、替换那些符合某个模式(规则)的文本。<br>&emsp;&emsp;Python的正则表达式处理由<strong><code>re</code></strong>模块提供，本篇将讲解<code>re</code>模块中经常被用到的几个函数的基本用法。<br><a id="more"></a><br>&emsp;&emsp;<em>以下操作均在Python 3 GUI 中进行。</em></p>
+<hr>
+<h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><p>Python的正则表达式处理由<strong><code>re</code></strong>模块提供，我们先来看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;正则表达式&apos;)</div><div class="line">result = re.search(pattern, s)</div><div class="line">print (type(result))</div><div class="line">print (result)</div><div class="line">print (result.gruop(0))</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;class &apos;_sre.SRE_Match&apos;&gt;</div><div class="line">&lt;_sre.SRE_Match object; span=(6, 11), match=&apos;正则表达式&apos;&gt;</div><div class="line">&apos;正则表达式&apos;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;以上演示了在一个字符串中寻找某个子串。其中<code>re.compile</code>的作用编译正则表达式模式为一个正则表达式对象，而该正则表达式模式为括号中的<code>&#39;正则表达式&#39;</code>。</p>
+<h4 id="re-search"><a href="#re-search" class="headerlink" title="re.search"></a>re.search</h4><p>&emsp;&emsp;<code>re.search</code>是在字符串<code>s</code>中找到第一个与正则表达式对象<code>pattern</code>匹配的串后停止并返回结果，这意味着如果主串中有两个匹配的子串，<code>re.search</code>找到并返回的总是第一个出现的。<br>&emsp;&emsp;从上面可以看到，<code>re.search</code>返回的结果类型是<code>_sre.SRE_Match</code>，<em>（若匹配不到，结果则是None）</em>，直接打印该结果会得到两个比较有用的信息：匹配到的串及该串在主串中的位置。如果仅仅想要匹配的串，则需要用到<code>_sre.SRE_Match</code>类下的<code>group</code>。至于<code>group</code>我们稍后会将解。</p>
+<blockquote>
+<p><strong>注意</strong>，上面例子还有另外两种写法：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;正则表达式&apos;)</div><div class="line">result = pattern.search(s)</div></pre></td></tr></table></figure>
+<p>以及</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">result = re.search(&apos;正则表达式&apos;, s)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>此处仅作一个补充，接下来所有的例子均采用最上面第一个例子的写法。</p>
+</blockquote>
+<p>&emsp;&emsp;上面的例子讲到<code>re.search</code>返回的结果，该结果有一个<code>group</code>的方法，这个到底怎么用呢，看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;((正则)(表达))式&apos;) #这里并不是匹配括号，而是生成group的作用，若要匹配括号，要在括号前面加上反斜杠\，或在字符串前面加上r。</div><div class="line">ss = re.search(pattern, s)</div><div class="line">print (ss.group(0))</div><div class="line">print (ss.group(1))</div><div class="line">print (ss.group(2))</div><div class="line">print (ss.group(3))</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">正则表达式</div><div class="line">正则表达</div><div class="line">正则</div><div class="line">表达</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以看到，如果<code>re.search</code>成功匹配，其结果有一个默认的<code>group</code>，就是<code>0</code>，它的结果是整个匹配串<code>正则表达式</code>。至于有没有<code>group(1)</code> <code>group(2)</code>…，就看你的模式有没有用括号进行<code>group</code>划分。</p>
+<blockquote>
+<p>&emsp;&emsp;<code>group</code>的匹配顺序是由外到里，由左到右。先是外层括号，后是内层括号，同级括号的顺序从左到右。</p>
+</blockquote>
+<p>在上面的例子中，<code>group(1)</code>对应的是<code>正则表达</code>，<code>group(2)</code>对应的是<code>正则</code>，<code>group(3)</code>对应的是<code>表达</code>。</p>
+<h4 id="re-match"><a href="#re-match" class="headerlink" title="re.match"></a>re.match</h4><p><code>re.search</code>基本上就这样，再来看看与它相似的<code>re.match</code>。<br>看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;Py(thon)&apos;)</div><div class="line">result = re.match(pattern, s)</div><div class="line">print (type(result))</div><div class="line">print (result)</div><div class="line">print (result.gruop(0))</div><div class="line">print (result.gruop(1))</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;class &apos;_sre.SRE_Match&apos;&gt;</div><div class="line">&lt;_sre.SRE_Match object; span=(0, 6), match=&apos;Python&apos;&gt;</div><div class="line">&apos;Python&apos;</div><div class="line">&apos;thon&apos;</div></pre></td></tr></table></figure>
+<p>可以看到，和<code>re.search</code>返回的结果类型是一样的。</p>
+<p>不同之处在于：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;正则表达式&apos;)</div><div class="line">result = re.match(pattern, s)</div><div class="line">print (result)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">None</div></pre></td></tr></table></figure>
+<p>也就是说，<code>re.match</code>是从字符串的开头就开始匹配的，它不会像<code>re.search</code>一样在串里寻找匹配项。</p>
+<h4 id="re-findall"><a href="#re-findall" class="headerlink" title="re.findall"></a>re.findall</h4><p>最后看一下也经常用到的<code>re.findall</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式，第二个Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;正则表达式&apos;)</div><div class="line">result = re.findall(pattern, s)</div><div class="line">print (type(result))</div><div class="line">print (ss)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;class &apos;list&apos;&gt;</div><div class="line">[&apos;正则表达式&apos;, &apos;正则表达式&apos;]</div></pre></td></tr></table></figure>
+<p>可以看到，<code>re.findall</code>返回的结果是<code>list</code>，里面包含所有匹配的子串。</p>
+<p>再进一步，看下面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">s = &apos;Python正则表达式，第二个Python正则表达式&apos;</div><div class="line">pattern = re.compile(&apos;(正则)表达式&apos;) # 注意此处模式里加入了group</div><div class="line">result = re.findall(pattern, s)</div><div class="line">print (type(result))</div><div class="line">print (ss)</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;class &apos;list&apos;&gt;</div><div class="line">[&apos;正则&apos;, &apos;正则&apos;]</div></pre></td></tr></table></figure>
+<p>对于<code>re.findall</code>，如果匹配模式里有<code>group</code>，则返回的结果不再是<code>group(0)</code>，而是该模式下的<code>group(1)</code> <code>group(2)</code> <code>group(3)</code>……</p>
+<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4><p>&emsp;&emsp;以上介绍了<code>re</code>模块中经常被用到的4个函数的基本用法，掌握了这4个函数的基本用法基本上就可以处理Python中绝大多数有关于用正则表达式处理字符串的问题了。</p>
+<hr>
+<ul>
+<li>以上若有错误之处还望各位看官指正，非常感谢。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客——完善与美化.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客——完善与美化</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T15:02:17+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T10:55:01+08:00"
-              content="2017-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/开启Hexo博客之旅.html" itemprop="url">
-              
-                <span itemprop="name">开启Hexo博客之旅</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-06T14:48:12+08:00"
-              content="2017-05-06" >
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------EOF-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/Python正则表达式——re模块部分解析.html">Python正则表达式——re模块部分解析</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ly 的个人博客">ly</a></p>
+  <p><span>发布时间:</span>2017年05月24日 - 17:05</p>
+  <p><span>最后更新:</span>2017年10月20日 - 17:10</p>
+  <p><span>原始链接:</span><a href="/Python正则表达式——re模块部分解析.html" title="Python正则表达式——re模块部分解析">http://lyhub.xyz/Python正则表达式——re模块部分解析.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/Python正则表达式——re模块部分解析.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/正则表达式/" rel="tag"><i class="fa fa-tag"></i> 正则表达式</a>
+          
+            <a href="/tags/字符串处理/" rel="tag"><i class="fa fa-tag"></i> 字符串处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Python正则表达式——书写正则表达式.html" rel="next" title="Python正则表达式——书写正则表达式">
+                <i class="fa fa-chevron-left"></i> Python正则表达式——书写正则表达式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Python2编码解析.html" rel="prev" title="Python2编码解析">
+                Python2编码解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2146328" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -548,6 +591,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -568,8 +620,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -650,6 +711,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-search"><span class="nav-number">2.</span> <span class="nav-text">re.search</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-match"><span class="nav-number">3.</span> <span class="nav-text">re.match</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-findall"><span class="nav-number">4.</span> <span class="nav-text">re.findall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束"><span class="nav-number">5.</span> <span class="nav-text">结束</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -771,6 +848,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -796,6 +877,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146328"></script>
+      <!-- UY END -->
     
   
 

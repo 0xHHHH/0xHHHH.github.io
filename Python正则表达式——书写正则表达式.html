@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python,正则表达式,字符串处理," />
 
 
 
@@ -96,16 +96,20 @@
 
 
 
-<meta name="description" content="LYHUB--ly的知识分享小站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LYHUB">
-<meta property="og:url" content="http://lyhub.xyz/archives/2017/05/index.html">
+<meta name="description" content="本篇摘抄于网络，非作任何商业用途，若存在版权问题，请联系博主。   什么是正则表达式&amp;emsp;&amp;emsp;正则表达式是可以匹配文本片段的模式。最简单的正则表达式就是普通字符串，可以匹配其自身。换句话说，正则表达式&amp;#39;python&amp;#39;可以匹配字串&amp;#39;python&amp;#39;。你可以用这种匹配行为搜索文本中的模式，并且用计算后的值替换特定模式，或者将文本进行分段。">
+<meta name="keywords" content="Python,正则表达式,字符串处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python正则表达式——书写正则表达式">
+<meta property="og:url" content="http://lyhub.xyz/Python正则表达式——书写正则表达式.html">
 <meta property="og:site_name" content="LYHUB">
-<meta property="og:description" content="LYHUB--ly的知识分享小站">
+<meta property="og:description" content="本篇摘抄于网络，非作任何商业用途，若存在版权问题，请联系博主。   什么是正则表达式&amp;emsp;&amp;emsp;正则表达式是可以匹配文本片段的模式。最简单的正则表达式就是普通字符串，可以匹配其自身。换句话说，正则表达式&amp;#39;python&amp;#39;可以匹配字串&amp;#39;python&amp;#39;。你可以用这种匹配行为搜索文本中的模式，并且用计算后的值替换特定模式，或者将文本进行分段。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lyhub.xyz/upload_image/20160412165147753.png">
+<meta property="og:updated_time" content="2017-10-20T09:52:56.356Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LYHUB">
-<meta name="twitter:description" content="LYHUB--ly的知识分享小站">
+<meta name="twitter:title" content="Python正则表达式——书写正则表达式">
+<meta name="twitter:description" content="本篇摘抄于网络，非作任何商业用途，若存在版权问题，请联系博主。   什么是正则表达式&amp;emsp;&amp;emsp;正则表达式是可以匹配文本片段的模式。最简单的正则表达式就是普通字符串，可以匹配其自身。换句话说，正则表达式&amp;#39;python&amp;#39;可以匹配字串&amp;#39;python&amp;#39;。你可以用这种匹配行为搜索文本中的模式，并且用计算后的值替换特定模式，或者将文本进行分段。">
+<meta name="twitter:image" content="http://lyhub.xyz/upload_image/20160412165147753.png">
 
 
 
@@ -135,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://lyhub.xyz/archives/2017/05/"/>
+  <link rel="canonical" href="http://lyhub.xyz/Python正则表达式——书写正则表达式.html"/>
 
 
 
 
 
-  <title>归档 | LYHUB</title>
+  <title>Python正则表达式——书写正则表达式 | LYHUB</title>
   
 
 
@@ -160,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -288,259 +292,282 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyhub.xyz/Python正则表达式——书写正则表达式.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ly">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tou.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYHUB">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Python正则表达式——书写正则表达式</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-20T10:40:18+08:00">
+                2017-05-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Python正则表达式——re模块部分解析.html" itemprop="url">
-              
-                <span itemprop="name">Python正则表达式——re模块部分解析</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-24T17:35:53+08:00"
-              content="2017-05-24" >
-          05-24
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Python正则表达式——书写正则表达式.html" itemprop="url">
-              
-                <span itemprop="name">Python正则表达式——书写正则表达式</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-20T10:40:18+08:00"
-              content="2017-05-20" >
-          05-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客——结束篇.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客——结束篇</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-16T13:00:16+08:00"
-              content="2017-05-16" >
-          05-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <blockquote>
+<p>本篇摘抄于网络，非作任何商业用途，若存在版权问题，请联系博主。</p>
+</blockquote>
+<hr>
+<h4 id="什么是正则表达式"><a href="#什么是正则表达式" class="headerlink" title="什么是正则表达式"></a>什么是正则表达式</h4><p>&emsp;&emsp;正则表达式是可以匹配文本片段的模式。最简单的正则表达式就是普通字符串，可以匹配其自身。换句话说，正则表达式<code>&#39;python&#39;</code>可以匹配字串<code>&#39;python&#39;</code>。你可以用这种匹配行为搜索文本中的模式，并且用计算后的值替换特定模式，或者将文本进行分段。<br><a id="more"></a></p>
+<h4 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h4><p>&emsp;&emsp;正则表达式可以匹配多于一个的字符串，你可以使用一些特殊字符创建这类模式。比如点号<code>.</code>可以匹配任何字符（除了换行符），所以正则表达式<code>&#39;.ython&#39;</code>可以匹配字符串’<code>python&#39;</code>和<code>&#39;jython&#39;</code>。它还能匹配<code>&#39;qython&#39;</code>或者<code>&#39; +ython&#39;</code>（第一个字母是空格），但是不会匹配<code>&#39;cpython&#39;</code>或者<code>&#39;ython&#39;</code>这样的字符串，因为点号只能匹配一个字母，而不是两个或零个。因为它可以匹配“任何字符串”（除换行符外的任何单个字符），点号就称为通配符。</p>
+<h4 id="对特殊字符进行转义"><a href="#对特殊字符进行转义" class="headerlink" title="对特殊字符进行转义"></a>对特殊字符进行转义</h4><p>&emsp;&emsp;你需要知道，在正则表达式中如果将特殊字符作为普通字符使用会遇到问题，这很重要。比如，假设需要匹配字符串<code>&#39;python.org&#39;</code>，直接用<code>&#39;python.org&#39;</code>模式可以么？这么做是可以的，但是这样也会匹配’<code>pythonzorg&#39;</code>，这可不是所期望的结果（点号可以匹配除换行符外的任何字符，还记得吧？）。为了让特殊字符表现得像普通字符一样，需要对它进行转义，进行转义所做的在它前面加上反斜线。因此，在本例中可以使用<code>&#39;python\\.org&#39;</code>，这样就只会匹配’<code>python.org&#39;</code>了。</p>
+<blockquote>
+<p><strong>注意</strong>：为了获得<code>re</code>模块所需的单个反斜线，我们要在字符串中使用两个反斜线——为了通过解释器进行转义。这样就需要两个级别的转义了 ：（1）通过解释器转义；（2）通过re模块转义。<br>（事实上，有些情况下可以使用单个反斜线，让解释器自动进行转义，但是别依赖这种功能。如果厌烦了使用双斜线，那么可以使用原始字符串，比如<code>r&#39;python.org&#39;</code>。）</p>
+</blockquote>
+<h4 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h4><p>&emsp;&emsp;匹配任意字符可能很有用，但有些时候你需要更多的控制权。你可以使用中括号括住字符串来创建字符集。字符集可以匹配它所包括的任意字符，所以<code>&#39;[pj]ython&#39;</code>能够匹配<code>&#39;python&#39;</code>和<code>&#39;jython&#39;</code>，而非其他内容。你可以使用范围，比如<code>&#39;[a-z]&#39;</code>能够（按字母顺序）匹配a到z的任意一个字符，还可以通过一个接一个的方式将范围联合起来使用，比如<code>&#39;[a-zA-Z0-9]&#39;</code>能够匹配任意大小写字母和数字（注意字符集只能匹配一个这样的字符）。<br>&emsp;&emsp;为了反转字符集，可以在开头使用<code>^</code>字符，比如<code>&#39;[^abc]&#39;</code>可以匹配任何除了<code>a</code>、<code>b</code>和<code>c</code>之外的字符。</p>
+<h4 id="选择符和子模式"><a href="#选择符和子模式" class="headerlink" title="选择符和子模式"></a>选择符和子模式</h4><p>&emsp;&emsp;在字符串的每个字符都各不相同的情况下，字符集是很好用的，但如果只想匹配字符串<code>&#39;python&#39;</code>和<code>&#39;perl&#39;</code>呢？你就不能使用字符集或者通配符来指定某个特定的模式了。取而代之的是用于选择项的特殊字符：管道符<code>|</code>。因此，所需的模式可以写成<code>&#39;python|perl&#39;</code>。<br>&emsp;&emsp;但是，有些时候不需要对整个模式使用选择运算符——只是模式的一部分。这时可以使用圆括号括起需要的部分，或称子模式。前例可以写成<code>&#39;p(ython|erl)&#39;</code>。（注意，术语子模式也适用于单个字符。）</p>
+<h4 id="可选项和重复子模式"><a href="#可选项和重复子模式" class="headerlink" title="可选项和重复子模式"></a>可选项和重复子模式</h4><p>&emsp;&emsp;在子模式后面加上问号，它就变成了可选项。它可能出现在匹配字符串中，但并非必需的。<br>例如，下面这个（稍微有点难懂的）模式：<br><code>r&#39;(http://)?(www\.)?python\org&#39;</code><br>只能匹配下列字符串（而不会匹配其他的）：<br><code>&#39;http://www.python.org&#39;</code><br><code>&#39;http://python.org&#39;</code><br><code>&#39;www.python.org&#39;</code><br><code>&#39;python.org&#39;</code><br>对于上述例子，下面这些内容是值得注意的：</p>
+<ul>
+<li>对点号进行了转义，防止它被作为通配符使用；</li>
+<li>使用原始字符串减少所需反斜线的数量；</li>
+<li>每个可选子模式都用圆括号括起；</li>
+<li>可选子模式出现与否均可，而且互相独立。</li>
+</ul>
+<p>问号表示子模式可以出现一次或者根本不出现。下面这些运算符允许子模式重复多次：</p>
+<ul>
+<li><code>(pattern)*</code>：允许模式重复0次或多次；</li>
+<li><code>(pattern)+</code>：允许模式重复1次或多次；</li>
+<li><code>(pattern){m,n}</code>：允许模式重复m至n次。</li>
+</ul>
+<p>例如，<code>r&#39;w*\.python\.org&#39;</code>，会匹配<code>&#39;www.python.org&#39;</code>，也会匹配<code>&#39;.python.org&#39;</code>、<code>&#39;ww.python.org&#39;</code>和<code>&#39;wwwwwww.python.org&#39;</code>。类似地，<code>r&#39;w+\.python\.org&#39;</code>匹配<code>&#39;w.python.org&#39;</code>但不匹配<code>&#39;.python.org&#39;</code>，而<code>r&#39;w{3,4}\.python\.org&#39;</code>只匹配<code>&#39;www.python.org&#39;</code>和<code>&#39;wwww.python.org&#39;</code>。</p>
+<h4 id="字符串的开始和结尾"><a href="#字符串的开始和结尾" class="headerlink" title="字符串的开始和结尾"></a>字符串的开始和结尾</h4><p>&emsp;&emsp;目前为止，所出现的模式匹配都是针对整个字符串的，但是也能寻找匹配模式的子字符串，比如字符串<code>&#39;www.python.org&#39;</code>中的子字符串<code>&#39;www&#39;</code>会能够匹配模式<code>&#39;w+&#39;</code>。在寻找这样的子字符串时，确定子字符串位于整个字符串的开始还是结尾是很有用的。比如，只想在字符串的开头而不是其他位置匹配<code>&#39;ht+p&#39;</code>，那么就可以使用脱字符<code>^</code>标记开始：<code>&#39;^ht+p&#39;</code>会匹配<code>&#39;http://python.org&#39;</code>(以及<code>&#39;htttttttttp://python.org&#39;</code>），但是不匹配<code>&#39;www.python.org&#39;</code>。类似地，字符串结尾用美元符号<code>$</code>标识。</p>
+<blockquote>
+<p><strong>注意</strong>：有关正则表达式运算符的完整列表，请参见Python类参考的4.2,1节的内容（<a href="http://python.org/doc/lib/re-syntax.html）。" target="_blank" rel="external">http://python.org/doc/lib/re-syntax.html）。</a></p>
+</blockquote>
+<h4 id="参考表"><a href="#参考表" class="headerlink" title="参考表"></a>参考表</h4><p><img src="/upload_image/20160412165147753.png" alt=""></p>
+<hr>
+<p>&emsp;&emsp;如果不知道如何应用，只知道如何书写正则表达式还是不够的。<code>re</code>模块包含一些有用的操作正则表达式的函数。请移步<a href="http://lyhub.xyz/Python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E2%80%94%E2%80%94re%E6%A8%A1%E5%9D%97%E9%83%A8%E5%88%86%E8%A7%A3%E6%9E%90.html">Python正则表达式——re模块部分解析</a>进一步了解。</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客——完善与美化.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客——完善与美化</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-12T15:02:17+08:00"
-              content="2017-05-12" >
-          05-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/Hexo搭建博客.html" itemprop="url">
-              
-                <span itemprop="name">Hexo搭建博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-10T10:55:01+08:00"
-              content="2017-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/开启Hexo博客之旅.html" itemprop="url">
-              
-                <span itemprop="name">开启Hexo博客之旅</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-06T14:48:12+08:00"
-              content="2017-05-06" >
-          05-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------EOF-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/Python正则表达式——书写正则表达式.html">Python正则表达式——书写正则表达式</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ly 的个人博客">ly</a></p>
+  <p><span>发布时间:</span>2017年05月20日 - 10:05</p>
+  <p><span>最后更新:</span>2017年10月20日 - 17:10</p>
+  <p><span>原始链接:</span><a href="/Python正则表达式——书写正则表达式.html" title="Python正则表达式——书写正则表达式">http://lyhub.xyz/Python正则表达式——书写正则表达式.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/Python正则表达式——书写正则表达式.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/正则表达式/" rel="tag"><i class="fa fa-tag"></i> 正则表达式</a>
+          
+            <a href="/tags/字符串处理/" rel="tag"><i class="fa fa-tag"></i> 字符串处理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Hexo搭建博客——结束篇.html" rel="next" title="Hexo搭建博客——结束篇">
+                <i class="fa fa-chevron-left"></i> Hexo搭建博客——结束篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Python正则表达式——re模块部分解析.html" rel="prev" title="Python正则表达式——re模块部分解析">
+                Python正则表达式——re模块部分解析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2146328" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
 
 
           </div>
@@ -548,6 +575,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -568,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -650,6 +695,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是正则表达式"><span class="nav-number">1.</span> <span class="nav-text">什么是正则表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通配符"><span class="nav-number">2.</span> <span class="nav-text">通配符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对特殊字符进行转义"><span class="nav-number">3.</span> <span class="nav-text">对特殊字符进行转义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符集"><span class="nav-number">4.</span> <span class="nav-text">字符集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择符和子模式"><span class="nav-number">5.</span> <span class="nav-text">选择符和子模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#可选项和重复子模式"><span class="nav-number">6.</span> <span class="nav-text">可选项和重复子模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的开始和结尾"><span class="nav-number">7.</span> <span class="nav-text">字符串的开始和结尾</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考表"><span class="nav-number">8.</span> <span class="nav-text">参考表</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -771,6 +832,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -796,6 +861,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146328"></script>
+      <!-- UY END -->
     
   
 
