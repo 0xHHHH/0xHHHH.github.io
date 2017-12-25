@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lyhub.xyz/"/>
-  <updated>2017-10-17T13:10:25.275Z</updated>
+  <updated>2017-12-25T16:24:12.565Z</updated>
   <id>http://lyhub.xyz/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬虫——F12...寻找数据API接口</title>
+    <link href="http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94F12-%E5%AF%BB%E6%89%BE%E6%95%B0%E6%8D%AEAPI%E6%8E%A5%E5%8F%A3.html"/>
+    <id>http://lyhub.xyz/python爬虫——F12-寻找数据API接口.html</id>
+    <published>2017-09-10T02:17:11.000Z</published>
+    <updated>2017-12-25T16:24:12.565Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>基于<code>python2.x</code>、<code>Windows</code>平台<br><a id="more"></a><br>&emsp;&emsp;在上一篇<a href="http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E6%8F%90%E5%8F%96.html">python爬虫——简单的网页提取</a>中我们了解了基本的网页提取，但有时候我们要爬取的内容并不能从网页中获取得到。比如说，还是王者荣耀，每个英雄的皮肤图片都很好看，把它们下载下来作桌面壁纸也不错。我们打开某个英雄的页面<a href="http://pvp.qq.com/web201605/herodetail/106.shtml" target="_blank" rel="external">http://pvp.qq.com/web201605/herodetail/106.shtml</a>，查看源代码，搜索<code>skin</code>得到仅有3处<br><img src="/upload_image/20171225204623080.jpg" alt=""></p></blockquote><p>&emsp;&emsp;从链接来看我们基本能猜到皮肤图片的网页链接的结构，尝试一下就能确定了。比如在浏览器中直接打开 <a href="http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-1.jpg" target="_blank" rel="external">http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/106/106-bigskin-1.jpg</a> ，我们可以得到一张高清英雄皮肤图片。那么我们的思路基本确定下来了：得到英雄的名字及其对应编号（如小乔链接中的106）和皮肤数量，然后依次拼接这些图片链接并打开将它们下载下来。<br>&emsp;&emsp;那么如何得到英雄的名字及其对应编号（如小乔链接中的106）和皮肤数量？！最简单的方法就是自己手动一个一个网页地看，这显然不是我们要的。那要怎么做呢？！<br>&emsp;&emsp;在王者荣耀官网有这样一个网页<a href="http://pvp.qq.com/web201605/herolist.shtml" target="_blank" rel="external">http://pvp.qq.com/web201605/herolist.shtml</a>，在里面可以看到所有的英雄。然而查看它的源代码却发现并没有这些英雄的信息。那么可以确定这是一个动态网页，网页内容由js动态加载的。对于这类网页要如何处理呢。<br>&emsp;&emsp;其中一种方法是使用<code>selenium</code>模块，它是一个自动化测试工具。它支持各种浏览器，包括 Chrome，Safari，Firefox 等主流界面式浏览器。也有无界面浏览器PhantomJS（一个无界面的,可脚本编程的WebKit浏览器引擎）。它原生支持多种web 标准：DOM 操作，CSS选择器，JSON，Canvas 以及SVG。使用<code>selenium</code>模块处理动态网页就是用”浏览器”打开网页，等网页的内容加载完成后再进行信息提取。跟我们手动刷网页差不多，只不过它是自动的。使用这种方法能达到我们的目的，但是效率比较低。<br>&emsp;&emsp;另外一种方法是在网页中寻找我们要爬的数据的API接口。内容能显示在网页上，说明浏览器已经将它下载下来。那它是什么时候下载，从哪里下载，这个就是我们要找的。<br>如何找——F12（浏览器的开发者工具）&gt;本篇以火狐浏览器为例<br>打开刚才的页面，等页面加载完后打开开发者工具，在查看器项目可以看到加载完后网页的代码。切换到网络标签，F5刷新页面，从中我们可以看到浏览器打开该链接后<br>从服务器那里都下载了什么东西下来。在这些众多的条目中我们发现有一个条目<code>herolist.json</code>，点开这个条目查看其响应<br><img src="/upload_image/20171225213244354.jpg" alt=""><br>可以看到，这个json包含的正是我们所要找的信息，包括英雄编号，名字，描述，皮肤名称等等，在消息头标签可以看到其对应的网址。这样对于所要爬取的信息，我们就不用等待网页加载完再提取，而是直接打开这个网址就能得到我们所要的信息。</p><p>so 我们的爬虫脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import sys  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line">import requests</div><div class="line">import os</div><div class="line"></div><div class="line">def downloadPicture():</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    下载并保存图片</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    # 英雄信息json的链接</div><div class="line">    url=&apos;http://pvp.qq.com/web201605/js/herolist.json&apos;</div><div class="line">    # 设置请求头</div><div class="line">    head=&#123;&apos;User-Agent&apos;:&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.101&apos;&#125;</div><div class="line">    html = requests.get(url,headers=head)</div><div class="line">    # 获取json数据，其结果是一个列表</div><div class="line">    html_json=html.json()</div><div class="line">    </div><div class="line">    for hero in html_json:</div><div class="line">        hero_name = hero[&apos;cname&apos;]   # 英雄名字</div><div class="line">        hero_title = hero[&apos;title&apos;]  # 英雄描述</div><div class="line">        hero_id = hero[&apos;ename&apos;]     # 英雄编号</div><div class="line">        os.mkdir(&quot;D:\\WZRYwallpaper2\\&quot;+hero_name+&apos; &apos;+hero_title)   # 创建英雄目录</div><div class="line">        os.chdir(&quot;D:\\WZRYwallpaper2\\&quot;+hero_name+&apos; &apos;+hero_title)   # 进入刚创建的目录</div><div class="line">        skin_names = hero[&apos;skin_name&apos;].split(&apos;|&apos;)   # 得到英雄皮肤名称列表</div><div class="line">        skin_index = 1</div><div class="line">        for skin_name in skin_names:</div><div class="line">            skin_links=&apos;http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/&apos;+str(hero_id)+&apos;/&apos;+str(hero_id)+&apos;-bigskin-&apos;+str(skin_index)+&apos;.jpg&apos;</div><div class="line">            img = requests.get(skin_links)</div><div class="line">            if img.status_code == 200:</div><div class="line">                open(skin_name+&apos;.jpg&apos;, &apos;wb&apos;).write(img.content)     # 以皮肤对应的名称保存jpg</div><div class="line">            skin_index += 1</div><div class="line"></div><div class="line">if __name__==&apos;__main__&apos;:</div><div class="line">    downloadPicture()</div></pre></td></tr></table></figure></p><p>运行下脚本，不用一会就可以去收图啦~~</p><hr><p>关于requests模块：<br>&emsp;&emsp;<a href="http://docs.python-requests.org/zh_CN/latest/index.html" target="_blank" rel="external">requests中文文档</a></p><blockquote><p>tip：网页爬虫多按F12</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;基于&lt;code&gt;python2.x&lt;/code&gt;、&lt;code&gt;Windows&lt;/code&gt;平台&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://lyhub.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://lyhub.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://lyhub.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫——简单的网页提取</title>
+    <link href="http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E6%8F%90%E5%8F%96.html"/>
+    <id>http://lyhub.xyz/python爬虫——简单的网页提取.html</id>
+    <published>2017-09-07T09:58:52.000Z</published>
+    <updated>2017-12-25T16:24:28.539Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>基于<code>python2.x</code>、<code>Windows</code>平台<br><a id="more"></a><br>&emsp;&emsp;我们的目标是使用<code>urllib2</code>模块获取王者荣耀英雄的“英雄故事”和“历史上的ta”的内容。比如这个页面：<a href="http://pvp.qq.com/web201605/herodetail/106.shtml" target="_blank" rel="external">http://pvp.qq.com/web201605/herodetail/106.shtml</a>（小乔）<br>&emsp;&emsp;打开这个页面并右键选择查看网页源代码，<code>ctrl+f</code>搜索<code>英雄故事</code>可以看到如下内容：<br><img src="/upload_image/20171224215205706.jpg" alt=""><br>那两段话就是我们要提取的内容。</p></blockquote><p>爬虫脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import re</div><div class="line">import urllib2</div><div class="line"></div><div class="line">url=&apos;http://pvp.qq.com/web201605/herodetail/106.shtml&apos;</div><div class="line">html = urllib2.urlopen(url)#打开网页</div><div class="line">text = html.read()#获取网页源代码</div><div class="line">pattern = re.compile(&apos;&lt;h2 class=&quot;cover-name&quot;&gt;(.*?)&lt;/h2&gt;&apos;)#匹配对应英雄名字</div><div class="line">result = re.search(pattern,text)</div><div class="line">print result.group(1)  #输出英雄名字</div><div class="line">pattern = re.compile(&apos;&lt;div class=&quot;pop-bd&quot;&gt;.*?&lt;p&gt;(.*?)&lt;/p&gt;.*?&lt;/div&gt;&apos;, re.S)#匹配要抓取的两段文字</div><div class="line">result = re.findall(pattern, text)</div><div class="line">print u&apos;英雄故事：&apos;.encode(&apos;GB18030&apos;),result[0]</div><div class="line">print u&apos;历史上的ta：&apos;.encode(&apos;GB18030&apos;),result[1]</div></pre></td></tr></table></figure></p><p>&emsp;&emsp;<br>输出结果：<br><img src="/upload_image/20171225002519879.jpg" alt=""></p><p>更多的进阶用法：<br>&emsp;&emsp;<a href="http://www.jb51.net/article/74831.htm" target="_blank" rel="external">深入解析Python中的urllib2模块</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;基于&lt;code&gt;python2.x&lt;/code&gt;、&lt;code&gt;Windows&lt;/code&gt;平台&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://lyhub.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://lyhub.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://lyhub.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>Python3编码小记</title>
