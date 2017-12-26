@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://lyhub.xyz/upload_image/20171224215205706.jpg">
 <meta property="og:image" content="http://lyhub.xyz/upload_image/20171225002519879.jpg">
-<meta property="og:updated_time" content="2017-12-25T16:24:28.539Z">
+<meta property="og:updated_time" content="2017-12-26T05:22:29.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python爬虫——简单的网页提取">
 <meta name="twitter:description" content="基于python2.x、Windows平台">
@@ -397,8 +397,10 @@
 
       
         <blockquote>
-<p>基于<code>python2.x</code>、<code>Windows</code>平台<br><a id="more"></a><br>&emsp;&emsp;我们的目标是使用<code>urllib2</code>模块获取王者荣耀英雄的“英雄故事”和“历史上的ta”的内容。比如这个页面：<a href="http://pvp.qq.com/web201605/herodetail/106.shtml" target="_blank" rel="external">http://pvp.qq.com/web201605/herodetail/106.shtml</a>（小乔）<br>&emsp;&emsp;打开这个页面并右键选择查看网页源代码，<code>ctrl+f</code>搜索<code>英雄故事</code>可以看到如下内容：<br><img src="/upload_image/20171224215205706.jpg" alt=""><br>那两段话就是我们要提取的内容。</p>
+<p>基于<code>python2.x</code>、<code>Windows</code>平台</p>
 </blockquote>
+<a id="more"></a>
+<p>&emsp;&emsp;我们的目标是使用<code>urllib2</code>模块获取王者荣耀英雄的“英雄故事”和“历史上的ta”的内容。比如这个页面：<a href="http://pvp.qq.com/web201605/herodetail/106.shtml" target="_blank" rel="external">http://pvp.qq.com/web201605/herodetail/106.shtml</a>（小乔）<br>&emsp;&emsp;打开这个页面并右键选择查看网页源代码，<code>ctrl+f</code>搜索<code>英雄故事</code>可以看到如下内容：<br><img src="/upload_image/20171224215205706.jpg" alt=""><br>那两段话就是我们要提取的内容。</p>
 <p>爬虫脚本如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import re</div><div class="line">import urllib2</div><div class="line"></div><div class="line">url=&apos;http://pvp.qq.com/web201605/herodetail/106.shtml&apos;</div><div class="line">html = urllib2.urlopen(url)		#打开网页</div><div class="line">text = html.read()				#获取网页源代码</div><div class="line">pattern = re.compile(&apos;&lt;h2 class=&quot;cover-name&quot;&gt;(.*?)&lt;/h2&gt;&apos;)	#匹配对应英雄名字</div><div class="line">result = re.search(pattern,text)</div><div class="line">print result.group(1)  #输出英雄名字</div><div class="line">pattern = re.compile(&apos;&lt;div class=&quot;pop-bd&quot;&gt;.*?&lt;p&gt;(.*?)&lt;/p&gt;.*?&lt;/div&gt;&apos;, re.S)	#匹配要抓取的两段文字</div><div class="line">result = re.findall(pattern, text)</div><div class="line">print u&apos;英雄故事：&apos;.encode(&apos;GB18030&apos;),result[0]</div><div class="line">print u&apos;历史上的ta：&apos;.encode(&apos;GB18030&apos;),result[1]</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;<br>输出结果：<br><img src="/upload_image/20171225002519879.jpg" alt=""></p>
 <p>更多的进阶用法：<br>&emsp;&emsp;<a href="http://www.jb51.net/article/74831.htm" target="_blank" rel="external">深入解析Python中的urllib2模块</a></p>
@@ -432,7 +434,7 @@
   <p><span>本文标题:</span><a href="/python爬虫——简单的网页提取.html">python爬虫——简单的网页提取</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 ly 的个人博客">ly</a></p>
   <p><span>发布时间:</span>2017年09月07日 - 17:09</p>
-  <p><span>最后更新:</span>2017年12月26日 - 00:12</p>
+  <p><span>最后更新:</span>2017年12月26日 - 13:12</p>
   <p><span>原始链接:</span><a href="/python爬虫——简单的网页提取.html" title="python爬虫——简单的网页提取">http://lyhub.xyz/python爬虫——简单的网页提取.html</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/python爬虫——简单的网页提取.html"  aria-label="复制成功！"></i></span>
   </p>
