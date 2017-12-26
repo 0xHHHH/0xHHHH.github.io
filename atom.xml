@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lyhub.xyz/"/>
-  <updated>2017-12-26T05:22:25.296Z</updated>
+  <updated>2017-12-26T17:10:51.872Z</updated>
   <id>http://lyhub.xyz/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬虫——PyV8</title>
+    <link href="http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94PyV8.html"/>
+    <id>http://lyhub.xyz/python爬虫——PyV8.html</id>
+    <published>2017-09-15T06:07:21.000Z</published>
+    <updated>2017-12-26T17:10:51.872Z</updated>
+    
+    <content type="html"><![CDATA[<p>&emsp;&emsp;<a href="http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94F12...%E5%AF%BB%E6%89%BE%E6%95%B0%E6%8D%AEAPI%E6%8E%A5%E5%8F%A3.html">上一篇</a>爬虫文章我们通过直接找到数据API接口从而绕开了网页动态加载的问题。那么如果在动态网页中找不到数据接口那肿么破呢？！接下来我们来看看python爬虫中应对动态网页的另一种姿势：PyV8执行JS脚本。<br><a id="more"></a><br>&emsp;&emsp;上次我们下载了所有王者荣耀英雄的皮肤图片，这次我们来爬取LOL所有英雄的皮肤图片。打开某个英雄的页面<a href="http://lol.qq.com/web201310/info-defail.shtml?id=Amumu" target="_blank" rel="external">http://lol.qq.com/web201310/info-defail.shtml?id=Amumu</a>（阿木木），右键查看源代码可以发现这个网页明显是动态加载的<br><img src="/upload_image/20171226215436651.jpg" alt=""></p><p><img src="/upload_image/20171226215416808.jpg" alt=""><br>F12打开开发者工具再刷新页面<br><img src="/upload_image/20171227004823841.jpg" alt=""><br>从中可以看到我们所要爬取的图片，从链接来看跟某个编号有关。<br>再看看其他可以看到一个很显眼js条目<br><img src="/upload_image/20171226220150541.jpg" alt=""><br>打开其链接得到如下<br><img src="/upload_image/20171226220405241.jpg" alt=""><br>从中可以看到<code>id</code> <code>key</code> <code>name</code> <code>title</code> <code>skins</code> 等等这些关键信息，如取其中title输出来看<br><img src="/upload_image/20171226220504666.jpg" alt=""><br>很明显这个js文件存放的是该英雄的所有信息（你可以再输出其他Unicode字符串看看是哪些具体信息）<br>其中<code>skins</code>中的<code>id</code>和上面看到的图的名称<code>bigxxxx.jpg</code>都一一对应，到这我们可以想到，只要拿到所有英雄的英文名称，就能拿到所有英雄的js文件，那么就能拿到<code>skins</code>中的所有编号，这样就能把所有皮肤图片爬取下来。</p><p>那现在怎么拿到所有英雄的英文名称呢<br>在网络栏的众多条目中，我们找到另外一个有价值的js条目：champion.js<br>打开其链接得到如下<br><img src="/upload_image/20171226222729355.jpg" alt=""><br>很明显这些正是英雄的英文名称及其对应的编号。</p><p>&emsp;&emsp;到这我们爬虫所需要的东西都到齐了，有的同学可能会说，直接用正则把需要的信息匹配出来不就行了，都不用执行什么JS脚本。确实直接用正则将需要的信息匹配出来可以爬取所有图片，但是呢会很繁琐。不但要处理英文名称，中文名称，描述，编号，id等等，还要考虑不同英雄的皮肤数量不同，皮肤编号及其对应名称这些。这样处理起来会非常的不方便。<br>&emsp;&emsp;这时我们转变一下思路，既然它们都是js文件，信息又是以js中的数组形式表示着，那我们能不能将这些数据结构化地拿到python中呢？！</p><p>这时候就需要用到PyV8模块了<br>&emsp;&emsp;PyV8是一个Python封装V8引擎的壳。它提供了简单可用的API，能够利用python来构建出JavaScript的运行时环境。下面我们通过代码来看看PyV8的简单应用。<br>爬虫脚本如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">import sys  </div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line">import urllib2</div><div class="line">import requests</div><div class="line">import PyV8</div><div class="line">import os</div><div class="line">from time import sleep</div><div class="line">import random</div><div class="line"></div><div class="line"># 存有全英雄信息的js链接</div><div class="line">url = &quot;http://lol.qq.com/biz/hero/champion.js&quot;</div><div class="line"># 获取该js脚本</div><div class="line">html = urllib2.urlopen(url)</div><div class="line"># 创建一个jsContext对象并进入</div><div class="line">ctxt = PyV8.JSContext()</div><div class="line">ctxt.enter()</div><div class="line"># 执行js代码</div><div class="line">ctxt.eval(html.read())</div><div class="line"></div><div class="line"># 用JSContext对象的locals方法获取js中的变量</div><div class="line"># 该结果是英雄的id及其对应的英文名字构成的类字典对象</div><div class="line"># 注意：它不是字典 而是一个&lt;class &apos;_PyV8.JSObject&apos;&gt;，它有两个方法：keys 和 clone，并且不支持迭代</div><div class="line"># 因此下面for循环不能直接用它进行迭代</div><div class="line">all_hero = ctxt.locals.LOLherojs.champion[&quot;keys&quot;]</div><div class="line"></div><div class="line"># 用该对象的keys方法拿到所有键，返回的是列表</div><div class="line"># 注意：在浏览器中我们看到的键是字符串，但是这里返回来后是int型</div><div class="line">hero_id = all_hero.keys()</div><div class="line"></div><div class="line">for id in hero_id:</div><div class="line">    hero_name = all_hero[str(id)]   # 用id键去all_hero取对应的值时又得把它转成str</div><div class="line">    url = &quot;http://lol.qq.com/biz/hero/&quot;+hero_name+&quot;.js&quot; # 拼接存有详细英雄信息的js链接</div><div class="line">    html = urllib2.urlopen(url)</div><div class="line">    ctxt.eval(html.read())</div><div class="line">    # 以下是另一种从js中获取变量值的方式（执行一个js函数进行return）</div><div class="line">    func = ctxt.eval(&apos;&apos;&apos;</div><div class="line">        (function()&#123;</div><div class="line">            return LOLherojs.champion[&quot;%s&quot;].data.name+&quot; &quot;+LOLherojs.champion[&quot;%s&quot;].data.title;</div><div class="line">        &#125;)</div><div class="line">    &apos;&apos;&apos; % (hero_name,hero_name))</div><div class="line">    hero_ZHname = func()    # 得到函数返回结果（英雄中文名称）</div><div class="line">    os.mkdir(&quot;D:\\LOLwallpaper2\\&quot;+hero_ZHname.encode(&apos;GB18030&apos;))</div><div class="line">    os.chdir(&quot;D:\\LOLwallpaper2\\&quot;+hero_ZHname.encode(&apos;GB18030&apos;))</div><div class="line">    skins = ctxt.locals.LOLherojs.champion[hero_name].data.skins    # 获取皮肤编号列表</div><div class="line">    for skin in skins:</div><div class="line">        skin_links=&apos;http://ossweb-img.qq.com/images/lol/web201310/skin/big&apos;+skin.id+&apos;.jpg&apos;</div><div class="line">        img = requests.get(skin_links)</div><div class="line">        if img.status_code == 200:</div><div class="line">            open(skin.name.encode(&apos;GB18030&apos;)+&apos;.jpg&apos;, &apos;wb&apos;).write(img.content)</div><div class="line">        sleep(random.randint(1,3))  # 防ban</div><div class="line">    print hero_name,&apos;  done&apos;</div></pre></td></tr></table></figure></p><p>为更好理解以上脚本最好对JavaScript有些许了解</p><hr><ul><li><a href="http://blog.csdn.net/hanshileiai/article/details/51628173" target="_blank" rel="external">PyV8安装参考</a></li><li><a href="http://pxzj.top/soft/pyv8-master/doc/build/html/index.html#" target="_blank" rel="external">PyV8文档</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;emsp;&amp;emsp;&lt;a href=&quot;http://lyhub.xyz/python%E7%88%AC%E8%99%AB%E2%80%94%E2%80%94F12...%E5%AF%BB%E6%89%BE%E6%95%B0%E6%8D%AEAPI%E6%8E%A5%E5%8F%A3.html&quot;&gt;上一篇&lt;/a&gt;爬虫文章我们通过直接找到数据API接口从而绕开了网页动态加载的问题。那么如果在动态网页中找不到数据接口那肿么破呢？！接下来我们来看看python爬虫中应对动态网页的另一种姿势：PyV8执行JS脚本。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://lyhub.xyz/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="http://lyhub.xyz/tags/Python/"/>
+    
+      <category term="爬虫" scheme="http://lyhub.xyz/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="JavaScript" scheme="http://lyhub.xyz/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>python爬虫——F12...寻找数据API接口</title>
