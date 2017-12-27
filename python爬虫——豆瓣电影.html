@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-icon.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python,爬虫," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="LYHUB" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;近期博主片荒，没啥视频看，就想去豆瓣找几部高分电影解解眼馋。豆瓣上的Top250挺不错的，不过大多数我喜欢的类型都看过，如果能来个个Top500、Top1000就好了。想到这于是冒出了个念头，不如把豆瓣上现有的电影都爬取下来，顺便做个评分数据的可视化玩玩还挺不错的。心动不如行动，撸起袖子就是干。">
+<meta name="keywords" content="Python,爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬虫——豆瓣电影">
+<meta property="og:url" content="http://lyhub.xyz/python爬虫——豆瓣电影.html">
+<meta property="og:site_name" content="LYHUB">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;近期博主片荒，没啥视频看，就想去豆瓣找几部高分电影解解眼馋。豆瓣上的Top250挺不错的，不过大多数我喜欢的类型都看过，如果能来个个Top500、Top1000就好了。想到这于是冒出了个念头，不如把豆瓣上现有的电影都爬取下来，顺便做个评分数据的可视化玩玩还挺不错的。心动不如行动，撸起袖子就是干。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://lyhub.xyz/upload_image/20171227151908251.jpg">
+<meta property="og:image" content="http://lyhub.xyz/upload_image/20171227151947466.jpg">
+<meta property="og:image" content="http://lyhub.xyz/upload_image/20171227152835700.jpg">
+<meta property="og:image" content="http://lyhub.xyz/upload_image/20171227194143279.jpg">
+<meta property="og:updated_time" content="2017-12-27T12:05:24.144Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python爬虫——豆瓣电影">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;近期博主片荒，没啥视频看，就想去豆瓣找几部高分电影解解眼馋。豆瓣上的Top250挺不错的，不过大多数我喜欢的类型都看过，如果能来个个Top500、Top1000就好了。想到这于是冒出了个念头，不如把豆瓣上现有的电影都爬取下来，顺便做个评分数据的可视化玩玩还挺不错的。心动不如行动，撸起袖子就是干。">
+<meta name="twitter:image" content="http://lyhub.xyz/upload_image/20171227151908251.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lyhub.xyz/python爬虫——豆瓣电影.html"/>
+
+
+
+
+
+  <title>python爬虫——豆瓣电影 | LYHUB</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LYHUB</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://lyhub.xyz/python爬虫——豆瓣电影.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ly">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tou.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LYHUB">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python爬虫——豆瓣电影</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T20:02:34+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;近期博主片荒，没啥视频看，就想去豆瓣找几部高分电影解解眼馋。豆瓣上的Top250挺不错的，不过大多数我喜欢的类型都看过，如果能来个个Top500、Top1000就好了。想到这于是冒出了个念头，不如把豆瓣上现有的电影都爬取下来，顺便做个评分数据的可视化玩玩还挺不错的。心动不如行动，撸起袖子就是干。<br><a id="more"></a><br>打开豆瓣电影选影视页面<a href="https://movie.douban.com/tag/#/" target="_blank" rel="external">https://movie.douban.com/tag/#/</a> 并勾选上电影，从页面中的“加载更多”可以得到这个页面是动态加载的。因此我们直接打开开发者工具，然后点击网页中的“加载更多”，可以看到浏览器下载了很多jpg和一个文件<br><img src="/upload_image/20171227151908251.jpg" alt=""><br>点开查看可以发现这个正是新加载的电影的一些信息，包括电影名称、评分、导演、演员、电影链接等等。<br><img src="/upload_image/20171227151947466.jpg" alt=""><br>&emsp;&emsp;找到了这个数据API接口，那我们就可以开爬了。不过想到后面想用这些数据做个简单的评分数据可视化，于是再次观察下这个接口的请求链接。在链接里有个<code>tags=%E7%94%B5%E5%BD%B1</code>，其中<code>%E7%94%B5%E5%BD%B1</code>正是“电影”的URL编码。在网页中我们勾选上“大陆”，可以看到网页更新了，打开刚下载的电影信息文件<br><img src="/upload_image/20171227152835700.jpg" alt=""><br>可以看到链接跟之前的不太一样，多了<code>%E5%A4%A7%E9%99%86</code>，我们将其解码得到的是<code>大陆</code>二字。至此接口链接的解析工作基本完成，只要改变地区的编码，就能拿到相应地区的电影数据，最后的<code>start</code>表示起始位置，每次访问接口它会返回20条数据，因此start的值由0开始，间隔20。<br>下面我们进入代码具体看下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line">#</div><div class="line"># 爬取豆瓣所有电影条目，以地区为分类</div><div class="line"># 由于爬取所用的链接所连接的数据库不是最新的，因此</div><div class="line"># 所爬取的电影条目会比真实的数据条目少一些，保守估计</div><div class="line"># 每一个分类比真实的数据条目少50左右</div><div class="line"># 由于豆瓣电影的分类规则原因，不同地区的电影存在的重合</div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line">import requests</div><div class="line">import re</div><div class="line">import os</div><div class="line">import json</div><div class="line">import urllib2</div><div class="line">import random</div><div class="line">from time import sleep,time</div><div class="line">import multiprocessing</div><div class="line">from multiprocessing import Pool</div><div class="line"></div><div class="line">def makefile(name):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    函数： makefile</div><div class="line">    参数： name（地区中文名称）</div><div class="line">    功能： 建立对应电影存储文件</div><div class="line">    返回： 文件f</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    dir = os.path.split(os.path.realpath(__file__))[0]</div><div class="line">    f = open(r&apos;%s\%s_movie.txt&apos; % (dir, name.encode(&apos;GB18030&apos;)), &apos;w&apos;)</div><div class="line">    f.write(&apos;电影名称&apos;.encode(&apos;GB18030&apos;))</div><div class="line">    f.write(&apos;^&apos;)    # 分隔符，方便后期提取数据</div><div class="line">    f.write(&apos;豆瓣评分&apos;.encode(&apos;GB18030&apos;))</div><div class="line">    f.write(&apos;^&apos;)</div><div class="line">    f.write(&apos;导演s&apos;.encode(&apos;GB18030&apos;))</div><div class="line">    f.write(&apos;^&apos;)</div><div class="line">    f.write(&apos;演员s&apos;.encode(&apos;GB18030&apos;))</div><div class="line">    f.write(&apos;^&apos;)</div><div class="line">    f.write(&apos;豆瓣链接&apos;.encode(&apos;GB18030&apos;))</div><div class="line">    f.write(&apos;\n&apos;)</div><div class="line">    return f</div><div class="line"></div><div class="line">class Unbuffered(object):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    该类用来设置系统控制台非缓冲输出，</div><div class="line">    方便观看每个进程的执行状况。</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    def __init__(self, stream):</div><div class="line">       self.stream = stream</div><div class="line">    def write(self, data):</div><div class="line">       self.stream.write(data)</div><div class="line">       self.stream.flush()</div><div class="line">    def __getattr__(self, attr):</div><div class="line">       return getattr(self.stream, attr)</div><div class="line">    </div><div class="line">def getinfo(url, country, name, ip):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    函数： getinfo</div><div class="line">    参数： country（地区对应的URL编码）name（地区中文名称）ip（ip代理池）</div><div class="line">    功能： 获取电影信息</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    # 设置非缓冲输出</div><div class="line">    sys.stdout = Unbuffered(sys.stdout)</div><div class="line">    # 输出进程pid</div><div class="line">    print &apos;children--&apos;,os.getpid()</div><div class="line">    # 设置请求头</div><div class="line">    user_agent =&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.22 Safari/537.36 SE 2.X MetaSr 1.0&apos;</div><div class="line">    headers = &#123;&apos;User-Agent&apos;:user_agent&#125;</div><div class="line">    # 获得写入文件</div><div class="line">    f = makefile(name)</div><div class="line">    # 页面start，以20为间隔</div><div class="line">    n = 0</div><div class="line">    # 由于免费代理的不稳定性，j用于计数打开页面失败次数</div><div class="line">    j = 0</div><div class="line">    # 爬虫开始时间</div><div class="line">    btime = time()</div><div class="line">    </div><div class="line">    proxy = &#123;&apos;http&apos;:&apos;0,0,0,0:0&apos;&#125;</div><div class="line">    </div><div class="line">    while True:</div><div class="line">        # 代理设置</div><div class="line">        proxy[&apos;http&apos;] = random.choice(ip)  # 从代理池中随机选取一个代理</div><div class="line">        proxy_handler = urllib2.ProxyHandler(proxy)</div><div class="line">        opener = urllib2.build_opener(proxy_handler)</div><div class="line">        urllib2.install_opener(opener)</div><div class="line">        tempurl = url+str(n)    # 拼接接口链接</div><div class="line">        </div><div class="line">        req = urllib2.Request(url=tempurl,headers=headers)</div><div class="line">        try:</div><div class="line">            # 获取页面内容</div><div class="line">            html = urllib2.urlopen(req).read()</div><div class="line">            # 调用json将内容格式化成字典</div><div class="line">            # 该数据的格式为 &#123; &quot;data&quot;:[ &#123; 电影数据 &#125; ......] &#125;</div><div class="line">            dic = json.loads(html)</div><div class="line">            </div><div class="line">            # 判断内容是否为空，若为空则说明爬取完成。</div><div class="line">            if len(dic[&quot;data&quot;]) == 0:</div><div class="line">                break</div><div class="line">            # 内容非空则处理每一条数据</div><div class="line">            for movice in dic[&quot;data&quot;]:</div><div class="line">                # 电影名称</div><div class="line">                f.write(movice[&quot;title&quot;].encode(&apos;GB18030&apos;))</div><div class="line">                f.write(&apos;^&apos;) # 分隔符</div><div class="line">                # 评分</div><div class="line">                f.write(movice[&quot;rate&quot;].encode(&apos;GB18030&apos;))</div><div class="line">                f.write(&apos;^&apos;)</div><div class="line">                # 导演</div><div class="line">                for director in movice[&quot;directors&quot;]:</div><div class="line">                    f.write(director.encode(&apos;GB18030&apos;))</div><div class="line">                    f.write(&apos; &amp; &apos;)</div><div class="line">                if len(movice[&quot;directors&quot;]) &gt; 0:</div><div class="line">                    f.seek(-3,1)</div><div class="line">                f.write(&apos;^&apos;)</div><div class="line">                # 演员</div><div class="line">                for cast in movice[&quot;casts&quot;]:</div><div class="line">                    f.write(cast.encode(&apos;GB18030&apos;))</div><div class="line">                    f.write(&apos; &amp; &apos;)</div><div class="line">                if len(movice[&quot;casts&quot;]) &gt; 0:</div><div class="line">                    f.seek(-3,1)</div><div class="line">                f.write(&apos;^&apos;)</div><div class="line">                # 豆瓣链接</div><div class="line">                f.write(movice[&quot;url&quot;].encode(&apos;GB18030&apos;))</div><div class="line">                f.write(&apos;\n&apos;)</div><div class="line">            n += 20</div><div class="line">            j = 0</div><div class="line">        except urllib2.URLError as e:</div><div class="line">            print e.reason</div><div class="line">            j += 1</div><div class="line">            # 检测失败次数，若达到5次则跳过该页</div><div class="line">            if j == 5:</div><div class="line">                print &apos;drop&apos;,name.encode(&apos;GB18030&apos;),n</div><div class="line">                n += 20</div><div class="line">            continue</div><div class="line">            </div><div class="line">    f.close()</div><div class="line">    # 爬虫结束时间</div><div class="line">    etime = time()</div><div class="line">    # 输出地区名称及该爬虫的运行时间</div><div class="line">    print name.encode(&apos;GB18030&apos;),&apos;--&apos;,etime-btime</div><div class="line">    </div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    # 设置非缓冲输出</div><div class="line">    sys.stdout = Unbuffered(sys.stdout)</div><div class="line">    # 地区</div><div class="line">    country = [&quot;大陆&quot;, &quot;美国&quot;, &quot;香港&quot;, &quot;台湾&quot;, &quot;日本&quot;, &quot;韩国&quot;, &quot;英国&quot;, &quot;法国&quot;, &quot;德国&quot;, \</div><div class="line">                &quot;意大利&quot;, &quot;西班牙&quot;, &quot;印度&quot;, &quot;泰国&quot;, &quot;俄罗斯&quot;, &quot;伊朗&quot;, &quot;加拿大&quot;, &quot;澳大利亚&quot;, &quot;爱尔兰&quot;, &quot;瑞典&quot;, &quot;巴西&quot;, &quot;丹麦&quot;]</div><div class="line">    # 地区URL编码</div><div class="line">    cDecode = [</div><div class="line">                &apos;%E5%A4%A7%E9%99%86&apos;,</div><div class="line">                &apos;%E7%BE%8E%E5%9B%BD&apos;,</div><div class="line">                &apos;%E9%A6%99%E6%B8%AF&apos;,</div><div class="line">                &apos;%E5%8F%B0%E6%B9%BE&apos;,</div><div class="line">                &apos;%E6%97%A5%E6%9C%AC&apos;,</div><div class="line">                &apos;%E9%9F%A9%E5%9B%BD&apos;,</div><div class="line">                &apos;%E8%8B%B1%E5%9B%BD&apos;,</div><div class="line">                &apos;%E6%B3%95%E5%9B%BD&apos;,</div><div class="line">                &apos;%E5%BE%B7%E5%9B%BD&apos;,</div><div class="line">                &apos;%E6%84%8F%E5%A4%A7%E5%88%A9&apos;,</div><div class="line">                &apos;%E8%A5%BF%E7%8F%AD%E7%89%99&apos;,</div><div class="line">                &apos;%E5%8D%B0%E5%BA%A6&apos;,</div><div class="line">                &apos;%E6%B3%B0%E5%9B%BD&apos;,</div><div class="line">                &apos;%E4%BF%84%E7%BD%97%E6%96%AF&apos;,</div><div class="line">                &apos;%E4%BC%8A%E6%9C%97&apos;,</div><div class="line">                &apos;%E5%8A%A0%E6%8B%BF%E5%A4%A7&apos;,</div><div class="line">                &apos;%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A&apos;,</div><div class="line">                &apos;%E7%88%B1%E5%B0%94%E5%85%B0&apos;,</div><div class="line">                &apos;%E7%91%9E%E5%85%B8&apos;,</div><div class="line">                &apos;%E5%B7%B4%E8%A5%BF&apos;,</div><div class="line">                &apos;%E4%B8%B9%E9%BA%A6&apos;</div><div class="line">               ]</div><div class="line">    # 生成地区及其URL编码一一对应的字典</div><div class="line">    dicCountry = dict(zip(cDecode, country))</div><div class="line">    </div><div class="line">    print &apos;main--&apos;,os.getpid()</div><div class="line">    </div><div class="line">    # 获取ip代理池</div><div class="line">    dir = os.path.split(os.path.realpath(__file__))[0]</div><div class="line">    ipfile = open(r&apos;%s\ipPool.txt&apos; % (dir))</div><div class="line">    iplist = []</div><div class="line">    for line in ipfile.readlines():</div><div class="line">        iplist.append(line.strip(&apos;\n&apos;))</div><div class="line">    ipfile.close()</div><div class="line">    </div><div class="line">    begintime = time()</div><div class="line">    </div><div class="line">    # 多进程爬取</div><div class="line">    pool = Pool(processes=4)</div><div class="line">    for c in dicCountry:</div><div class="line">        # 拼接原始链接</div><div class="line">        turl = &apos;https://movie.douban.com/j/new_search_subjects?sort=T&amp;range=0,10&amp;tags=%E7%94%B5%E5%BD%B1,&apos;+c+&apos;&amp;start=&apos;</div><div class="line">        # print turl</div><div class="line">        pool.apply_async(getinfo, (turl, c, dicCountry[c], iplist))</div><div class="line">        </div><div class="line">    # 调用join()之前必须先调用close()，调用close()之后就不能继续添加新的Process了</div><div class="line">    pool.close()</div><div class="line">    # 等待所有子进程执行完毕再继续执行</div><div class="line">    pool.join()</div><div class="line">    </div><div class="line">    endtime = time()</div><div class="line">    print &apos;main--&apos;,endtime-begintime</div><div class="line">    print &apos;done&apos;</div></pre></td></tr></table></figure></p>
+<p>下面是爬取西刺免费代理的脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-</div><div class="line"># </div><div class="line"># 建立/更新 IP 代理池</div><div class="line"># 来源网站：西刺 http://www.xicidaili.com</div><div class="line"></div><div class="line">import sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(&apos;utf-8&apos;)</div><div class="line">import urllib2</div><div class="line">import os</div><div class="line">import re</div><div class="line">from lxml import etree</div><div class="line"></div><div class="line"># 西刺高匿代理起始页面</div><div class="line">url = &apos;http://www.xicidaili.com/nn/&apos;</div><div class="line"># 代理ip有效性测试网站</div><div class="line">test_url = &quot;https://www.baidu.com/&quot;</div><div class="line"># urllib2请求头设置</div><div class="line">user_agent =&apos;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.22 Safari/537.36 SE 2.X MetaSr 1.0&apos;</div><div class="line">headers = &#123;&apos;User-Agent&apos;:user_agent&#125;</div><div class="line"></div><div class="line">def checkipwork(proxy):</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    函数： checkipwork</div><div class="line">    参数： proxy (数据类型：字典 &#123;&apos;http&apos;:&apos;0.0.0.0:0&apos;&#125;)</div><div class="line">    功能： 测试代理ip有效性</div><div class="line">    返回： 有效：True 无效：False</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    # 代理设置</div><div class="line">    proxy_handler = urllib2.ProxyHandler(proxy)</div><div class="line">    opener = urllib2.build_opener(proxy_handler)</div><div class="line">    # urllib2.install_opener(opener)</div><div class="line">    req = urllib2.Request(url=test_url,headers=headers)</div><div class="line">    try:</div><div class="line">        # res = urllib2.urlopen(req)</div><div class="line">        res = opener.open(req)</div><div class="line">        content = res.readline()</div><div class="line">        # 检查是否有返回内容及其状态码</div><div class="line">        if content and res.code == 200:</div><div class="line">            return True</div><div class="line">        else:</div><div class="line">            print proxy[&apos;http&apos;],res.code,&apos;its not ok&apos;</div><div class="line">            return False</div><div class="line">    except urllib2.URLError as e:</div><div class="line">        print e.reason,proxy[&apos;http&apos;],&apos;its not ok&apos;</div><div class="line">        return False</div><div class="line"> </div><div class="line">def getLatestIp():</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    函数： getLatestIp</div><div class="line">    参数：</div><div class="line">    功能： 建立/更新 IP 代理池，将符合条件的ip存入当前文件夹 ipPool.txt 文件中</div><div class="line">    返回：</div><div class="line">    &apos;&apos;&apos;</div><div class="line">    pattern = re.compile(r&apos;&lt;tr class=.*?tr&gt;&apos;, re.S)</div><div class="line">    pattern2 = re.compile(r&apos;&quot;bar_inner (.*?)&quot;&apos;, re.S)</div><div class="line">    proxy = &#123;&apos;http&apos;:&apos;0.0.0.0:0&apos;&#125;</div><div class="line">    # 获取当前文件夹路径</div><div class="line">    dir = os.path.split(os.path.realpath(__file__))[0]</div><div class="line">    # 打开写入ip的文件 ipPool.txt</div><div class="line">    f = open(r&apos;%s\ipPool.txt&apos; % (dir), &apos;w&apos;)</div><div class="line">    # 处理过程的日志文件</div><div class="line">    log = open(r&apos;%s\getLatestIpLog.txt&apos; % (dir), &apos;w&apos;)</div><div class="line">    log.write(ctime()+&apos;\nbegin......\n&apos;)</div><div class="line">    # n：页面数</div><div class="line">    n = 1</div><div class="line">    # j：用于计数打开页面失败的次数</div><div class="line">    j = 0</div><div class="line">    # total：用于计数总的可用的ip数</div><div class="line">    total = 0</div><div class="line">    # 只抓取前10页的ip</div><div class="line">    while n &lt; 21:</div><div class="line">        try:</div><div class="line">            tempurl = url + str(n)</div><div class="line">            req = urllib2.Request(url=url,headers=headers)</div><div class="line">            log.write(&apos;processing &apos;+tempurl+&apos;\n&apos;)</div><div class="line">            html = urllib2.urlopen(req)</div><div class="line">            page = html.read()</div><div class="line">            # 获取网页中每个代理的DOM</div><div class="line">            list = re.findall(pattern, page)</div><div class="line">            t = 0</div><div class="line">            for l in list:</div><div class="line">                # 获取代理的速度标签</div><div class="line">                # 本函数过滤掉所有连接时间跟连接速度小于fast的</div><div class="line">                r = re.findall(pattern2, l)</div><div class="line">                if r[0] == &apos;fast&apos; and r[1] == &apos;fast&apos;:</div><div class="line">                    # 使用xpath快速获取ip及对应port</div><div class="line">                    temp = etree.HTML(l)</div><div class="line">                    ip = temp.xpath(&apos;//tr/td[2]/text()&apos;)[0]</div><div class="line">                    port = temp.xpath(&apos;//tr/td[3]/text()&apos;)[0]</div><div class="line">                    # 设置临时代理字典并传入checkipwork进行有效性检测</div><div class="line">                    proxy[&apos;http&apos;] = ip+&apos;:&apos;+port</div><div class="line">                    if checkipwork(proxy):</div><div class="line">                        # 若检测有效则写入文件</div><div class="line">                        f.write(ip+&apos;:&apos;+port+&apos;\n&apos;)</div><div class="line">                        total += 1</div><div class="line">                        t += 1</div><div class="line">            print n</div><div class="line">            log.write(&apos;Done: this page get %d ip, truly collect %d.\n&apos; % (len(list), t))</div><div class="line">            j = 0</div><div class="line">            n += 1</div><div class="line">            sleep(2)</div><div class="line">        except urllib2.URLError as e:</div><div class="line">            log.write(&apos;failed......\n&apos;)</div><div class="line">            print e.reason,&apos;main&apos;</div><div class="line">            j += 1</div><div class="line">            log.write(&apos;failed %d times\n&apos; % (j))</div><div class="line">            # j：用于计数打开页面失败的次数</div><div class="line">            # 若失败次数达到5次，则跳过该页</div><div class="line">            if j == 5:</div><div class="line">                n += 1</div><div class="line">                j = 0</div><div class="line">                log.write(&apos;skip this page\n&apos;)</div><div class="line">            sleep(5)</div><div class="line">            continue</div><div class="line">    print total</div><div class="line">    log.write(&apos;end......\ntotally Processing %d pages\ntotally collecting %d ip\n&apos; % (n-1, total))</div><div class="line">    log.close()</div><div class="line">    f.close()</div><div class="line">    </div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">    getLatestIp()</div></pre></td></tr></table></figure></p>
+<p>爬取豆瓣电影之前最好运行该脚本更新ipPool.txt文件内的ip，以保证ip有较高的可用性。</p>
+<hr>
+<p>爬取完成后会在当前目录下得到如下文件<br><img src="/upload_image/20171227194143279.jpg" alt=""><br>至于剩下来的评分数据可视化，我们在另外一篇文章：<a href="http://lyhub.xyz/pyecharts%E2%80%94%E2%80%94%E8%BF%9E%E6%8E%A5Echarts%E4%B8%8EPython.html">pyecharts——连接Echarts与Python</a>里做一个简单的应用跟展示。<br>&emsp;&emsp;</p>
+<blockquote>
+<p>注：以上基于<code>python2.x</code>、<code>Windows</code>平台</p>
+</blockquote>
+<p>&emsp;&emsp;<br>参考：</p>
+<ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/0013868323401155ceb3db1e2044f80b974b469eb06cb43000" target="_blank" rel="external">廖雪峰的python教程之多线程</a></li>
+<li><a href="http://python.jobbole.com/82045/" target="_blank" rel="external">Python多进程编程</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------EOF-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/python爬虫——豆瓣电影.html">python爬虫——豆瓣电影</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 ly 的个人博客">ly</a></p>
+  <p><span>发布时间:</span>2017年09月27日 - 20:09</p>
+  <p><span>最后更新:</span>2017年12月27日 - 20:12</p>
+  <p><span>原始链接:</span><a href="/python爬虫——豆瓣电影.html" title="python爬虫——豆瓣电影">http://lyhub.xyz/python爬虫——豆瓣电影.html</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://lyhub.xyz/python爬虫——豆瓣电影.html"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+      
+    </div>
+    
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/爬虫/" rel="tag"><i class="fa fa-tag"></i> 爬虫</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python爬虫——PyV8.html" rel="next" title="python爬虫——PyV8">
+                <i class="fa fa-chevron-left"></i> python爬虫——PyV8
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2146328" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="uyan_frame"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/tou.jpg"
+                alt="ly" />
+            
+              <p class="site-author-name" itemprop="name">ly</p>
+              <p class="site-description motion-element" itemprop="description">LYHUB--ly的知识分享小站</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+          
+            <span class="links-of-author-item">
+                <i class="fa fa-fw fa-envelope"></i> liyonggdut@163.com
+            </span><br/><br/><br/>
+            <span class="links-of-author-item">
+                <i class="fa fa-fw fa-link"></i> 欢迎互添友链
+            </span><br/>
+            
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ly</span>
+
+  
+</div>
+
+
+  <div class="powered-by">  个人博客</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">LYHUB &mdash; <a class="theme-link" target="_blank" href="http://lyhub.xyz">lyhub.xyz</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2146328"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
